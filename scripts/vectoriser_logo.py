@@ -37,7 +37,9 @@ ca = np.unique(ang[crest & orange]); good = np.setdiff1d(np.arange(3600), np.ara
 rs = ndimage.median_filter(rmax, 61, mode='wrap')
 rs = np.interp(np.arange(3600), good, rs[good], period=3600)
 rs = ndimage.uniform_filter1d(rs, 41, mode='wrap')
-filet = (dist > rs[ang] - 16.5*S) & (dist < rs[ang] - 12.5*S)
+# upper half-circle only, as on the original; ends taper to a point over ~15 degrees
+taper = np.clip((cy - yy) / np.maximum(dist, 1) / 0.26, 0, 1)
+filet = np.abs(dist - (rs[ang] - 14.5*S)) < 2*S*taper
 # under the crest the old 3D gap is replaced by the continuous filet
 crest2 = (yy < 240*S) & (xx > 430*S) & (xx < 820*S)
 orange = orange | (crest2 & silhouette & (dist >= rs[ang] - 12.5*S) & (dist < rs[ang] + 2*S))
