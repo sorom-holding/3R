@@ -68,7 +68,18 @@ def apercus():
                           'image': f'fichiers/apercus/{base}.png'})
     items.append({'id': 'signature-email', 'titre': 'Signature e-mail', 'format': 'HTML · Gmail, Outlook', 'image': None,
                   'specs': [['Fichier', 'modeles/signature-email/3R_signature-email.html'], ['Installation', 'Héberger le logo, remplacer les crochets, copier-coller dans le client mail']]})
-    return [i for i in items if i['image']]
+    items = [i for i in items if i['image']]
+    # Photos de mise en situation finalisées (logos officiels posés par scripts/composer_photos.py)
+    photos = [
+        ('accreditations', 'evenementiel', 'Badges et accréditations (photo)', 'A6 · 105 × 148 mm', [['Code couleur', 'Délégué orange, presse bleu nuit, invité gris chaud, organisation orange foncé'], ['Tour de cou', 'Ruban 20 mm assorti à la catégorie']]),
+        ('totem-accueil', 'evenementiel', 'Totem d’accueil et panneaux (photo)', 'Totem 800 × 2 000 mm · panneaux A3', [['Totem', 'Médaillon couleur sur bandeau blanc, corps bleu nuit, pied orange'], ['Panneaux', 'Fond blanc, cimier orange, flèche du côté de la direction']]),
+        ('roll-up', 'evenementiel', 'Roll-ups d’accueil (photo)', '850 × 2 000 mm', [['Haut', 'Médaillon couleur et nom du parti en Libre Caslon'], ['Corps', 'Bleu nuit, intitulé en blanc'], ['Bas', 'Bandeau orange, adresse du site']]),
+    ]
+    out = os.path.join(FICH, 'maquettes', 'photos')
+    for code, cat, titre, fmt, specs in photos:
+        if os.path.exists(os.path.join(out, f'3R_{code}.jpg')):
+            items.append({'id': 'photo-' + code, 'cat': cat, 'titre': titre, 'format': fmt, 'specs': specs, 'image': f'fichiers/maquettes/photos/3R_{code}.jpg'})
+    return items
 
 
 DESC = {
@@ -123,7 +134,7 @@ def main():
         {'groupe': 'Documents à imprimer (BAT et sources SVG)', 'items': liste('modeles/impression')},
         {'groupe': 'Polices', 'items': liste('polices', '*.ttf') + liste('polices', '*.txt')},
         {'groupe': 'Couleurs et design tokens', 'items': liste('tokens')},
-        {'groupe': 'Maquettes PNG', 'items': liste('maquettes')},
+        {'groupe': 'Maquettes PNG et photos', 'items': liste('maquettes', exclure=('sources',))},
     ]
     groupes = [g for g in groupes if g['items']]
     donnees = {'apercus': items, 'fichiers': groupes}

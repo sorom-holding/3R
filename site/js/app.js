@@ -58,7 +58,7 @@
   });
 
   /* Galeries */
-  const apercuPapeterie = D.apercus.map((a) => ({ cat: 'papeterie', id: a.id, titre: a.titre, format: a.format, specs: a.specs, image: a.image }));
+  const apercuPapeterie = D.apercus.map((a) => ({ cat: a.cat || 'papeterie', id: a.id, titre: a.titre, format: a.format, specs: a.specs, image: a.image }));
   const tout = [...apercuPapeterie, ...M];
   const visuel = (m) => (m.image ? `<img src="${m.image}" alt="">` : m.dessin());
   document.querySelectorAll('[data-galerie]').forEach((g) => {
