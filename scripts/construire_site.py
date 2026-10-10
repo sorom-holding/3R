@@ -71,6 +71,8 @@ def apercus():
     items = [i for i in items if i['image']]
     # Photos de mise en situation finalisées (logos officiels posés par scripts/composer_photos.py)
     photos = [
+        ('conference-de-presse', 'evenementiel', 'Conférence de presse (photo)', 'Mur médias 3 000 × 2 400 mm · nappe · drapeau', [['Mur médias', 'Grand médaillon et nom du parti, motif alterné médaillon et cimier'], ['Nappe', 'Bleu nuit, médaillon couleur, bande orange'], ['Drapeau', 'Orange, médaillon blanc']]),
+        ('signaletique-evenement', 'evenementiel', 'Totem et signalétique d’événement (photo)', 'Totem 800 × 2 000 mm · panneaux A3', [['Totem', 'Cimier découpé en tête, médaillon couleur, intitulé en Libre Caslon blanc'], ['Panneaux', 'Médaillon couleur, intitulé bleu nuit, flèche orange']]),
         ('accreditations', 'evenementiel', 'Badges et accréditations (photo)', 'A6 · 105 × 148 mm', [['Code couleur', 'Délégué orange, presse bleu nuit, invité gris chaud, organisation orange foncé'], ['Tour de cou', 'Ruban 20 mm assorti à la catégorie']]),
         ('totem-accueil', 'evenementiel', 'Totem d’accueil et panneaux (photo)', 'Totem 800 × 2 000 mm · panneaux A3', [['Totem', 'Médaillon couleur sur bandeau blanc, corps bleu nuit, pied orange'], ['Panneaux', 'Fond blanc, cimier orange, flèche du côté de la direction']]),
         ('roll-up', 'evenementiel', 'Roll-ups d’accueil (photo)', '850 × 2 000 mm', [['Haut', 'Médaillon couleur et nom du parti en Libre Caslon'], ['Corps', 'Bleu nuit, intitulé en blanc'], ['Bas', 'Bandeau orange, adresse du site']]),

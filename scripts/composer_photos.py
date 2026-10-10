@@ -113,6 +113,62 @@ def rollup():
                   + t(8, 162, 'Accueil et information', 3.8, w=400, fill=G) + r(0, 180, w, 20, O) + t(w / 2, 192, '[site-du-parti]', 4.2, anchor='middle'))
 
 
+def logo_raster(kind, W):
+    """Logo officiel rendu à W pixels de large (rendu ×3 puis réduit, pour des bords nets)."""
+    H = W * RATIO[kind]
+    img = rendu(logo(kind, W / 2, H / 2, W), W, H, int(round(W * 3)))
+    im = Image.fromarray((img * 255).astype(np.uint8)).resize((int(round(W)), int(round(H))), Image.LANCZOS)
+    return np.asarray(im).astype(np.float32) / 255
+
+
+def orange(photo, large=False):
+    r, g, b = [photo[..., i].astype(int) for i in range(3)]
+    if large:  # inclut les bords adoucis du logo d'origine
+        return ((r - b) > 35) & (r > 140)
+    return ((r - b) > 90) & (r > 180)
+
+
+def remplacer(photo, bbox, kind, masque=None, alignement='bas', largeur=None, limite=None, garder_devant=True):
+    """Efface un logo redessiné (zone bbox) et pose le logo officiel à sa place.
+    masque : pixels du logo d'origine (par défaut, les pixels orange de la zone) ;
+    limite : masque des pixels où le nouveau logo a le droit d'apparaître (ex. la toile d'un drapeau)."""
+    from scipy import ndimage
+    x, y, w, h = bbox
+    H, W_img = photo.shape[:2]
+    zone = np.zeros((H, W_img), bool)
+    zone[max(0, y - 6):y + h + 6, max(0, x - 6):x + w + 6] = True
+    if masque is None:
+        masque = orange(photo, large=True) & zone
+    masque = ndimage.binary_dilation(ndimage.binary_fill_holes(ndimage.binary_closing(masque, iterations=3)), iterations=5) & zone
+    lum0 = cv2.cvtColor(photo, cv2.COLOR_RGB2GRAY)
+    # chaises, micros devant le logo : seules les grandes zones sombres sont conservées
+    devant = ndimage.binary_opening((lum0 < 75) & ~orange(photo, large=True) & zone, iterations=3)
+    lab_d, n_d = ndimage.label(devant)
+    if n_d and garder_devant:
+        tailles = ndimage.sum(devant, lab_d, range(1, n_d + 1))
+        devant = np.isin(lab_d, np.where(tailles > 400)[0] + 1)
+    else:
+        devant = np.zeros_like(devant)
+    fond = cv2.cvtColor(cv2.inpaint(cv2.cvtColor(photo, cv2.COLOR_RGB2BGR), (masque & ~devant).astype(np.uint8) * 255, 9, cv2.INPAINT_TELEA), cv2.COLOR_BGR2RGB)
+    Wl = largeur or w
+    img = logo_raster(kind, Wl)
+    hl, wl = img.shape[:2]
+    x0 = int(round(x + (w - wl) / 2))
+    y0 = int(round(y + h - hl)) if alignement == 'bas' else int(round(y + (h - hl) / 2))
+    calque = np.zeros((H, W_img, 4), np.float32)
+    ys, xs = slice(max(0, y0), min(H, y0 + hl)), slice(max(0, x0), min(W_img, x0 + wl))
+    calque[ys, xs] = img[ys.start - y0:ys.stop - y0, xs.start - x0:xs.stop - x0]
+    a = calque[..., 3:4].copy()
+    if limite is not None:
+        a *= limite[..., None]
+    a[devant] = 0
+    zone_lum = ndimage.binary_dilation(masque, iterations=8) & ~devant
+    lum = eclairage(fond, zone_lum if zone_lum.any() else zone & ~devant)
+    rgb = cv2.GaussianBlur(calque[..., :3] * lum[..., None], (0, 0), 0.5)
+    base = fond.astype(np.float32) / 255
+    return (np.clip(base * (1 - a) + rgb * a, 0, 1) * 255).astype(np.uint8)
+
+
 def poser(photo, quad, dessin, px=1600, **kw):
     w, h, body = dessin
     return appliquer(photo, quad, rendu(body, w, h, px), **kw)
@@ -140,8 +196,69 @@ SCENES = {
 }
 
 
+MEDAILLONS_2 = [(537, 35, 201, 247), (296, 282, 69, 84), (572, 291, 64, 81), (828, 297, 58, 77), (1066, 304, 53, 74),
+               (439, 407, 67, 83), (703, 411, 61, 79), (949, 414, 57, 76), (1176, 416, 53, 74), (296, 534, 69, 84),
+               (574, 533, 63, 80), (830, 532, 58, 77), (1067, 530, 54, 74), (752, 714, 139, 183)]
+CIMIERS_2 = [(82, 221, 142, 103), (442, 298, 57, 38), (706, 306, 52, 38), (952, 312, 49, 36), (1178, 317, 44, 35),
+             (304, 418, 57, 38), (580, 422, 54, 37), (834, 424, 50, 35), (1073, 426, 46, 34), (1181, 540, 44, 34),
+             (956, 542, 47, 36), (708, 544, 50, 36), (444, 545, 56, 38), (307, 676, 54, 38)]
+
+
+def conference(photo):
+    """Conférence de presse (photo 2) : chaque médaillon et chaque cimier redessinés sont remplacés."""
+    from scipy import ndimage
+    for bb in MEDAILLONS_2:
+        x, y, w, h = bb
+        photo = remplacer(photo, bb, 'couleur', largeur=w * (1.0 if h > 1.05 * w else 1.0))
+    for bb in CIMIERS_2:
+        photo = remplacer(photo, bb, 'cimier-orange', alignement='centre')
+    # Drapeau : logo blanc sur toile orange, effacé en entier puis remplacé dans la limite de la toile
+    toile = orange(photo, large=True)
+    toile[:, :1150] = False
+    toile[650:, :] = False  # sous la table : bande orange de la nappe, à exclure
+    lab, n = ndimage.label(toile)
+    k = np.argmax(ndimage.sum(toile, lab, range(1, n + 1))) + 1
+    drap = ndimage.binary_fill_holes(ndimage.binary_closing(lab == k, iterations=6))
+    # toile reconstituée : moyenne locale des seuls pixels orange francs (convolution normalisée)
+    f = photo.astype(np.float32)
+    ecart = f[..., 0] - f[..., 2]
+    franc = (drap & (ecart > 150)).astype(np.float32)
+    flou = lambda a: cv2.GaussianBlur(a, (0, 0), 18)
+    poids = flou(franc) + 1e-4
+    fond = np.dstack([flou(f[..., i] * franc) / poids for i in range(3)])
+    a_refaire = ndimage.binary_erosion(drap, iterations=3) & (ecart < 0.85 * (fond[..., 0] - fond[..., 2]))
+    a_refaire = ndimage.binary_dilation(a_refaire, iterations=2) & drap
+    ys, xs = np.nonzero(a_refaire & (np.mgrid[:a_refaire.shape[0], :a_refaire.shape[1]][0] > 300))
+    f[a_refaire] = fond[a_refaire]
+    photo = np.clip(f, 0, 255).astype(np.uint8)
+    # logo blanc officiel, centré sur l'ancien emplacement, limité à la toile
+    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+    largeur = min(x1 - x0, 150)
+    vide = np.zeros(drap.shape, bool)
+    photo = remplacer(photo, (int(x0), int(y0), int(x1 - x0), int(y1 - y0)), 'blanc', masque=vide, largeur=largeur,
+                      alignement='centre', limite=ndimage.binary_erosion(drap, iterations=2).astype(np.float32))
+    return photo
+
+
+def signaletique(photo):
+    """Totem « Assemblée générale » et panneaux (photo 4)."""
+    # cimier 3D découpé au-dessus du totem : remplacé par le cimier officiel, à la même place
+    photo = remplacer(photo, (563, 36, 302, 102), 'cimier-orange', largeur=210, garder_devant=False)
+    photo = remplacer(photo, (610, 174, 260, 267), 'couleur', largeur=262, garder_devant=False)
+    for bb in [(219, 246, 87, 100), (1244, 224, 68, 70), (1249, 465, 67, 69)]:
+        photo = remplacer(photo, bb, 'couleur', largeur=bb[2] * 0.98)
+    return photo
+
+
+RETOUCHES = {'conference-de-presse': ('2.webp', conference), 'signaletique-evenement': ('4.webp', signaletique)}
+
+
 def main(src):
     os.makedirs(OUT, exist_ok=True)
+    for code, (fichier, fn) in RETOUCHES.items():
+        photo = np.asarray(Image.open(os.path.join(src, fichier)).convert('RGB'))
+        Image.fromarray(fn(photo)).save(os.path.join(OUT, f'3R_{code}.jpg'), quality=92)
+        print('ok', code)
     for code, (fichier, surfaces) in SCENES.items():
         photo = np.asarray(Image.open(os.path.join(src, fichier)).convert('RGB'))
         for quad, dessin in surfaces:
