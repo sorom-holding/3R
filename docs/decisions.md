@@ -10,4 +10,4 @@
 | Adaptations non autorisées | Version horizontale ; disque central RRR seul |
 | Messages | Aucun message politique ou électoral dans la charte et les modèles |
 | Plateforme web | Hébergement sur Vercel, après accord final avant mise en ligne |
-| Fichiers sources | Fournis par le parti ; les logos seront repris à partir de ces sources avant le reste de la production |
+| Fichiers sources | Les seuls fichiers existants sont `logo_3R_orange_blanc.svg` et `.pdf` (image 1254 px, sans tracés). La version en aplats vectorisée sert de base technique à toutes les déclinaisons. |

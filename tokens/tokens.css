@@ -1,0 +1,42 @@
+/* Design tokens 3R — généré par scripts/generer_tokens.py, ne pas modifier à la main */
+:root {
+  --3r-orange: #FE6501;
+  --3r-bleu-nuit: #1D2B4F;
+  --3r-blanc: #FFFFFF;
+  --3r-gris-chaud: #F4EFEA;
+  --3r-orange-fonce: #C24A00;
+  --3r-bleu-nuit-clair: #2E4170;
+  --3r-gris-texte: #4A5672;
+  --3r-gris-filet: #E4DDD4;
+  --3r-police-titre: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --3r-police-texte: "Source Sans 3", Arial, "Segoe UI", sans-serif;
+  --3r-taille-affiche: 4rem;
+  --3r-taille-h1: 2.5rem;
+  --3r-taille-h2: 1.875rem;
+  --3r-taille-h3: 1.375rem;
+  --3r-taille-chapeau: 1.25rem;
+  --3r-taille-texte: 1.062rem;
+  --3r-taille-legende: 0.875rem;
+  --3r-taille-surtitre: 0.8125rem;
+  --3r-interligne-affiche: 1.05;
+  --3r-interligne-h1: 1.1;
+  --3r-interligne-h2: 1.15;
+  --3r-interligne-h3: 1.25;
+  --3r-interligne-chapeau: 1.4;
+  --3r-interligne-texte: 1.55;
+  --3r-interligne-legende: 1.45;
+  --3r-interligne-surtitre: 1.2;
+  --3r-espace-1: 0.25rem;
+  --3r-espace-2: 0.5rem;
+  --3r-espace-3: 0.75rem;
+  --3r-espace-4: 1rem;
+  --3r-espace-5: 1.5rem;
+  --3r-espace-6: 2rem;
+  --3r-espace-7: 3rem;
+  --3r-espace-8: 4rem;
+  --3r-espace-9: 6rem;
+  --3r-rayon-aucun: 0px;
+  --3r-rayon-petit: 4px;
+  --3r-rayon-moyen: 8px;
+  --3r-rayon-pilule: 999px;
+}
