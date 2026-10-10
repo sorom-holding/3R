@@ -24,6 +24,7 @@ Dépôt du parti politique **3R** (Rassemblement des Républicains Réformateurs
 ### Logo vectoriel (recommandé)
 
 Version redessinée en tracés vectoriels nets (aplats orange `#FE6501` et blanc, sans les effets 3D).
+La double bordure du cercle (fin filet blanc) est rendue régulière sur tout le tour et passe sous le « 3R ».
 Elle s'agrandit sans perte et convient à l'impression grand format (affiches, banderoles, t-shirts).
 
 | Fichier | Usage |

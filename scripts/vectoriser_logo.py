@@ -30,6 +30,18 @@ holes = silhouette & ~orange
 lab, n = ndimage.label(holes)
 kept = np.unique(lab[ndimage.binary_opening(holes, iterations=4)])
 orange = orange | (holes & ~np.isin(lab, kept[kept > 0]))
+# uniform thin white filet (double border) all around, at the original groove offset
+crest = (yy < 225*S) & (xx > 460*S) & (xx < 790*S)
+# edge radius per angle; behind the 3R crest, interpolate from the neighbouring arc
+ca = np.unique(ang[crest & orange]); good = np.setdiff1d(np.arange(3600), np.arange(ca.min() - 20, ca.max() + 21))
+rs = ndimage.median_filter(rmax, 61, mode='wrap')
+rs = np.interp(np.arange(3600), good, rs[good], period=3600)
+rs = ndimage.uniform_filter1d(rs, 41, mode='wrap')
+filet = (dist > rs[ang] - 16.5*S) & (dist < rs[ang] - 12.5*S)
+# under the crest the old 3D gap is replaced by the continuous filet
+crest2 = (yy < 240*S) & (xx > 430*S) & (xx < 820*S)
+orange = orange | (crest2 & silhouette & (dist >= rs[ang] - 12.5*S) & (dist < rs[ang] + 2*S))
+orange = orange & ~filet
 def trace(mask, name):
     p = f'{out}/{name}.pbm'
     Image.fromarray((~mask).astype(np.uint8)*255).convert('1').save(p)
