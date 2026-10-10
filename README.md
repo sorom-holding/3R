@@ -1,42 +1,42 @@
 # 3R — Rassemblement des Républicains Réformateurs
 
-Dépôt du parti politique **3R** (Rassemblement des Républicains Réformateurs).
+Identité visuelle et charte graphique du parti **3R**.
 
-## Identité visuelle
+## Contenu
 
-La charte graphique complète (logo, couleurs, typographie, ton, applications) est dans [`charte-graphique.html`](charte-graphique.html).
-
-![Logo 3R](assets/logo/logo_3R_512.png)
-
-| Fichier | Usage |
+| Dossier | Contenu |
 |---|---|
-| `assets/logo/logo_3R_orange_blanc.svg` | Logo source (1254×1254) |
-| `assets/logo/logo_3R_orange_blanc.pdf` | Logo pour l'impression |
-| `assets/logo/logo_3R_orange_blanc.png` | Logo haute résolution (1254×1254) |
-| `assets/logo/logo_3R_512.png`, `logo_3R_192.png` | Logos web / icônes d'application |
-| `assets/logo/favicon.ico` | Favicon de site (16–64 px) |
+| `assets/logos/` | Logo officiel en relief (`00_officiel_3D`) et déclinaisons en aplats : principal, monochromes, blanc, fonds foncés, cimier « 3R » (miniature), avatars, favicons. SVG, PDF vectoriel, PNG transparents 512 à 4 096 px. |
+| `assets/polices/` | Libre Caslon Text et Source Sans 3 (TTF bureautique, WOFF2 web, licences SIL OFL). |
+| `tokens/` | Design tokens (`tokens.json` au format W3C, `tokens.css`), nuanciers Adobe (`.ase`) et GIMP/Inkscape (`.gpl`). |
+| `modeles/word/` | Papier à en-tête, communiqué officiel, note d'information, procès-verbal, rapport d'activité. |
+| `modeles/powerpoint/` | Modèle de présentation 16:9 (6 dispositions, thème 3R). |
+| `modeles/impression/` | Carte de visite, carte de membre, badge, enveloppes DL et C4, chemise : sources SVG modifiables et BAT PDF (fond perdu 3 mm, traits de coupe). |
+| `modeles/signature-email/` | Signature e-mail HTML. |
+| `maquettes/` | 42 maquettes PNG : événementiel, textiles et objets, signalétique, communication numérique. |
+| `charte/` | Charte graphique PDF (A4 paysage). |
+| `site/` | Plateforme web de consultation (HTML, CSS, JavaScript sans dépendance). |
+| `docs/` | Analyse technique du logo, décisions validées, captures de contrôle. |
+| `scripts/` | Générateurs de tous les fichiers ci-dessus. |
 
-### Couleurs
+## Statut du logo
 
-| Rôle | Couleur |
-|---|---|
-| Orange 3R (principal) | `#FE6501` |
-| Blanc | `#FFFFFF` |
+- **Officiel** : `assets/logos/00_officiel_3D/` (fichiers fournis par le parti, image 1 254 px).
+- **Validé** : la version en aplats et le cimier seul sont des adaptations techniques fidèles, validées par le parti. Aucune version horizontale n'est autorisée. Voir `docs/decisions.md`.
 
-### Logo vectoriel (recommandé)
+## Régénérer les fichiers
 
-Version redessinée en tracés vectoriels nets (aplats orange `#FE6501` et blanc, sans les effets 3D).
-La double bordure (fin filet blanc) est conservée sur le demi-cercle supérieur, comme sur l'original, mais rendue régulière : elle passe sous le « 3R » et s'affine en pointe à ses extrémités.
-Elle s'agrandit sans perte et convient à l'impression grand format (affiches, banderoles, t-shirts).
+Prérequis : Python 3 (numpy, scipy, pillow, cairosvg, pypdf), potrace, Node.js (docx, pptxgenjs, playwright-core), LibreOffice, Poppler.
 
-| Fichier | Usage |
-|---|---|
-| `assets/logo/vectoriel/logo_3R_couleur.svg` / `.pdf` | Logo officiel orange et blanc |
-| `assets/logo/vectoriel/logo_3R_orange.svg` / `.pdf` | Une couleur, lettres transparentes (sur fond clair) |
-| `assets/logo/vectoriel/logo_3R_blanc.svg` / `.pdf` | Une couleur blanche (sur fond foncé ou orange) |
-| `assets/logo/vectoriel/*_2048.png` | Exports PNG 2048 px, fond transparent |
+```bash
+python3 scripts/generer_logos.py            # déclinaisons du logo
+python3 scripts/generer_tokens.py           # tokens et nuanciers
+node scripts/generer_modeles_word.js        # modèles Word
+node scripts/generer_modele_powerpoint.js   # modèle PowerPoint
+python3 scripts/generer_impression.py       # documents à imprimer
+python3 scripts/construire_site.py          # plateforme web (site/fichiers, site/js/donnees.js)
+node scripts/exporter.js                    # maquettes PNG, charte PDF, captures
+python3 scripts/construire_site.py          # recopie les exports dans la plateforme
+```
 
-Les fichiers du dossier `assets/logo/` (hors `vectoriel/`) sont les originaux fournis : le SVG d'origine
-contient une image matricielle intégrée, pas des tracés vectoriels.
-
-La vectorisation est reproductible avec `scripts/vectoriser_logo.py` (Python + potrace).
+`site/fichiers/` et `site/js/donnees.js` sont générés et ne sont pas versionnés.

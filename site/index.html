@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charte graphique 3R</title>
+<meta name="description" content="Charte graphique et identité visuelle du Rassemblement des Républicains Réformateurs : logos, couleurs, typographie, modèles et maquettes.">
+<link rel="icon" href="fichiers/logos/07_favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="fichiers/logos/07_favicon/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="fichiers/logos/07_favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="fichiers/tokens/tokens.css">
+<link rel="stylesheet" href="css/polices.css">
+<link rel="stylesheet" href="css/charte.css">
+</head>
+<body>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="barre">
+  <a class="marque" href="#identite"><img src="fichiers/logos/05_miniature/3R_cimier_orange.svg" alt="" width="44" height="24"><span>Charte graphique</span></a>
+  <span class="version">Version 1.0 · octobre 2026</span>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Sommaire</button>
+</header>
+
+<div class="cadre">
+<nav id="nav" class="nav" aria-label="Sommaire">
+  <p class="nav-titre">Fondamentaux</p>
+  <a href="#identite">Identité</a><a href="#logo">Logo</a><a href="#couleurs">Couleurs</a><a href="#typographie">Typographie</a><a href="#grilles">Grilles et éléments</a>
+  <p class="nav-titre">Applications</p>
+  <a href="#papeterie">Documents institutionnels</a><a href="#evenementiel">Événementiel</a><a href="#textiles">Textiles et objets</a><a href="#numerique">Communication numérique</a><a href="#signaletique">Signalétique</a>
+  <p class="nav-titre">Production</p>
+  <a href="#impression">Impression et export</a><a href="#telechargements">Téléchargements</a><a href="#guide">Guide d’application</a>
+</nav>
+
+<main id="contenu">
+
+<!-- IDENTITÉ -->
+<section id="identite" class="sec ouverture">
+  <div class="ouverture-texte">
+    <p class="surtitre">Charte graphique officielle</p>
+    <h1>Rassemblement des Républicains Réformateurs</h1>
+    <p class="chapeau">Ce guide fixe l’usage du logo, des couleurs, des typographies et des modèles du parti. Il garantit que chaque document, chaque événement et chaque publication du 3R est reconnu au premier regard, partout et par tous.</p>
+    <dl class="faits">
+      <div><dt>Logo de référence</dt><dd>Médaillon 3R, version officielle en relief</dd></div>
+      <div><dt>Couleur signature</dt><dd>Orange 3R #FE6501</dd></div>
+      <div><dt>Accompagnement</dt><dd>Bleu nuit #1D2B4F</dd></div>
+      <div><dt>Typographies</dt><dd>Libre Caslon Text · Source Sans 3</dd></div>
+    </dl>
+  </div>
+  <figure class="ouverture-logo"><img src="fichiers/logos/00_officiel_3D/logo_3R_officiel_3D.png" alt="Logo officiel du 3R en relief : médaillon orange, cimier 3R, monogramme RRR"><figcaption>Logo officiel de référence (version en relief)</figcaption></figure>
+  <div class="trois">
+    <article><h3>Ce que le logo raconte</h3><p>Le cimier « 3R » porte le sigle. La couronne donne le nom complet, ponctué de trois points. Au centre, trois R entrelacés unissent les trois mots du nom : rassemblement, républicains, réformateurs.</p></article>
+    <article><h3>Ce que la charte protège</h3><p>Le médaillon n’est jamais redessiné, recoloré ni recomposé. Toutes les déclinaisons de ce guide en dérivent directement et en conservent les proportions.</p></article>
+    <article><h3>À qui elle s’adresse</h3><p>Instances nationales, fédérations, élus, équipes de communication, graphistes, imprimeurs et fournisseurs de textiles et d’objets.</p></article>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section id="logo" class="sec">
+  <header class="sec-tete"><p class="surtitre">01 · Logo</p><h2>Le système de logotypes</h2><p>Le logo officiel est la version en relief. Pour l’impression, la broderie, la sérigraphie et le web, on utilise sa version en aplats, validée comme version technique. Les déclinaisons ci-dessous en dérivent toutes.</p></header>
+
+  <div class="versions" id="versions"></div>
+  <p class="note">Statut des fichiers : <b>officiel</b> = logo d’origine fourni par le parti ; <b>validé</b> = adaptation technique fidèle, validée par le parti (version en aplats, cimier seul). Aucune version horizontale n’est autorisée.</p>
+
+  <h3 class="sous">Comparer les variantes</h3>
+  <div class="comparateur">
+    <div class="comp-scene" id="comp-scene"><img id="comp-img" src="fichiers/logos/01_principal/3R_principal_couleur.svg" alt="Aperçu de la variante choisie"></div>
+    <div class="comp-ctrl">
+      <fieldset><legend>Variante</legend><div class="choix" id="comp-variante"></div></fieldset>
+      <fieldset><legend>Fond</legend><div class="choix" id="comp-fond"></div></fieldset>
+      <p class="verdict" id="comp-verdict" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="deux">
+    <article>
+      <h3 class="sous">Grille de proportion</h3>
+      <figure class="planche"><svg viewBox="0 0 400 420" role="img" aria-label="Grille de construction du médaillon">
+        <rect width="400" height="420" fill="#FFFFFF"/>
+        <image href="fichiers/logos/01_principal/3R_principal_couleur.svg" x="60" y="20" width="280" height="308.7"/>
+        <g fill="none" stroke="#1D2B4F" stroke-width="1" stroke-dasharray="4 3">
+          <rect x="60" y="20" width="280" height="308.7"/>
+          <circle cx="200" cy="188.7" r="140"/><circle cx="200" cy="188.7" r="98"/>
+          <line x1="200" y1="10" x2="200" y2="340"/><line x1="50" y1="188.7" x2="350" y2="188.7"/>
+          <rect x="157.7" y="20" width="84.6" height="40.2" stroke="#C24A00"/>
+        </g>
+        <g font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#1D2B4F">
+          <text x="60" y="362">Largeur L · hauteur 1,10 L</text>
+          <text x="60" y="380">Disque central : rayon 0,70 R · cimier : 0,30 L × 0,13 H</text>
+          <text x="60" y="398" fill="#C24A00">Unité x = hauteur du cimier ≈ L / 7</text>
+        </g>
+      </svg></figure>
+    </article>
+    <article>
+      <h3 class="sous">Zone de protection</h3>
+      <figure class="planche"><svg viewBox="0 0 400 420" role="img" aria-label="Zone de protection autour du logo">
+        <rect width="400" height="420" fill="#FFFFFF"/>
+        <rect x="60" y="34" width="280" height="296" fill="#FFF3EA" stroke="#FE6501" stroke-dasharray="5 4"/>
+        <image href="fichiers/logos/01_principal/3R_principal_couleur.svg" x="100" y="74" width="200" height="220.5"/>
+        <g fill="#C24A00" font-family="Libre Caslon Text, Georgia, serif" font-size="14" font-weight="700" text-anchor="middle"><text x="200" y="60">x</text><text x="80" y="188">x</text><text x="320" y="188">x</text><text x="200" y="318">x</text></g>
+        <g font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#1D2B4F"><text x="60" y="362">Aucun texte, image ni bord de page dans la zone.</text><text x="60" y="380">x = hauteur du cimier « 3R » (1/7 de la largeur du logo).</text></g>
+      </svg></figure>
+    </article>
+  </div>
+
+  <h3 class="sous">Dimensions minimales</h3>
+  <div class="tableau"><table>
+    <thead><tr><th>Version</th><th>Impression</th><th>Écran</th><th>Au-dessous</th></tr></thead>
+    <tbody>
+      <tr><td>Médaillon (toutes couleurs)</td><td>30 mm de large</td><td>120 px de large</td><td>Le nom écrit en couronne devient illisible : utiliser le cimier</td></tr>
+      <tr><td>Cimier « 3R » (miniature)</td><td>10 mm de large</td><td>24 px de large</td><td>Favicon dédié (16, 32, 48 px)</td></tr>
+      <tr><td>Broderie</td><td>Médaillon Ø 55 mm</td><td>—</td><td>Cimier brodé, 40 mm minimum</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sous">Avatar et favicon</h3>
+  <div class="mini-grille">
+    <figure><img src="fichiers/logos/06_avatar/png/3R_avatar_cimier_orange_400px.png" alt="Avatar cimier blanc sur orange" class="rond"><figcaption>Avatar réseaux sociaux (petit affichage)</figcaption></figure>
+    <figure><img src="fichiers/logos/06_avatar/png/3R_avatar_medaillon_blanc_400px.png" alt="Avatar médaillon sur blanc" class="rond"><figcaption>Avatar page officielle (grand affichage)</figcaption></figure>
+    <figure><img src="fichiers/logos/07_favicon/icon-192.png" alt="Icône d’application" class="icone"><figcaption>Icône d’application 192 px</figcaption></figure>
+    <figure><img src="fichiers/logos/07_favicon/favicon-32.png" alt="Favicon 32 px" class="favicon"><figcaption>Favicon 32 px</figcaption></figure>
+  </div>
+
+  <h3 class="sous">Usages interdits</h3>
+  <div class="interdits" id="interdits"></div>
+</section>
+
+<!-- COULEURS -->
+<section id="couleurs" class="sec">
+  <header class="sec-tete"><p class="surtitre">02 · Couleurs</p><h2>Le système chromatique</h2><p>L’orange 3R est relevé sur les faces éclairées du logo officiel. Il reste rare et fort. Le bleu nuit porte les textes et les fonds institutionnels. Le blanc et le gris chaud font respirer les mises en page.</p></header>
+  <div class="nuancier" id="nuancier"></div>
+  <p class="note">Les valeurs CMJN et Pantone sont indicatives : elles se valident sur épreuve (BAT) avec chaque imprimeur et chaque support (papier couché, non couché, textile).</p>
+
+  <h3 class="sous">Proportions</h3>
+  <div class="proportions" role="img" aria-label="Blanc et gris 50 %, bleu nuit 30 %, orange 20 %"><span style="flex:50" class="p-blanc">Blanc / gris chaud 50 %</span><span style="flex:30" class="p-nuit">Bleu nuit 30 %</span><span style="flex:20" class="p-orange">Orange 20 %</span></div>
+
+  <h3 class="sous">Combinaisons autorisées</h3>
+  <div class="combinaisons">
+    <figure class="combi" style="background:#1D2B4F"><img src="fichiers/logos/04_fonds-fonces/3R_fond-fonce_couleur.svg" alt=""><figcaption style="color:#FFFFFF">Fond institutionnel · logo couleur</figcaption></figure>
+    <figure class="combi" style="background:#FE6501"><img src="fichiers/logos/03_blanc/3R_blanc.svg" alt=""><figcaption style="color:#1D2B4F">Support orange · logo blanc</figcaption></figure>
+    <figure class="combi" style="background:#FFFFFF;border:1px solid #E4DDD4"><img src="fichiers/logos/01_principal/3R_principal_couleur.svg" alt=""><figcaption style="color:#1D2B4F">Fond blanc · logo couleur</figcaption></figure>
+    <figure class="combi" style="background:#F4EFEA"><img src="fichiers/logos/02_monochrome/3R_mono_bleu-nuit.svg" alt=""><figcaption style="color:#1D2B4F">Monochrome · bleu nuit</figcaption></figure>
+    <figure class="combi" style="background:#FFFFFF;border:1px solid #E4DDD4"><img src="fichiers/logos/02_monochrome/3R_mono_noir.svg" alt=""><figcaption style="color:#1D2B4F">Monochrome · noir (fax, presse N&amp;B)</figcaption></figure>
+    <figure class="combi" style="background:#2E4170"><img src="fichiers/logos/03_blanc/3R_blanc.svg" alt=""><figcaption style="color:#FFFFFF">Fond bleu · logo blanc</figcaption></figure>
+  </div>
+
+  <h3 class="sous">Contrastes de lecture</h3>
+  <div class="contrastes">
+    <div style="background:#FE6501;color:#1D2B4F"><b>Bleu nuit sur orange</b><span>4,7 : 1 · tous textes</span></div>
+    <div style="background:#1D2B4F;color:#FFFFFF"><b>Blanc sur bleu nuit</b><span>13,9 : 1 · tous textes</span></div>
+    <div style="background:#FFFFFF;color:#C24A00;border:1px solid #E4DDD4"><b>Orange foncé sur blanc</b><span>4,9 : 1 · tous textes</span></div>
+    <div style="background:#1D2B4F;color:#FE6501"><b>Orange sur bleu nuit</b><span>4,7 : 1 · tous textes</span></div>
+    <div style="background:#FE6501;color:#FFFFFF"><b>Blanc sur orange</b><span>3,0 : 1 · titres de plus de 24 px seulement</span></div>
+    <div style="background:#FFFFFF;color:#FE6501;border:1px solid #E4DDD4"><b>Orange sur blanc</b><span>3,0 : 1 · titres de plus de 24 px seulement</span></div>
+  </div>
+
+  <h3 class="sous">Couleurs du site officiel</h3>
+  <div class="tableau"><table>
+    <thead><tr><th>Élément</th><th>Couleur</th><th>Jeton CSS</th></tr></thead>
+    <tbody>
+      <tr><td>Fond de page</td><td>Blanc</td><td><code>--3r-blanc</code></td></tr>
+      <tr><td>Texte courant, titres</td><td>Bleu nuit</td><td><code>--3r-bleu-nuit</code></td></tr>
+      <tr><td>Liens</td><td>Orange foncé, souligné</td><td><code>--3r-orange-fonce</code></td></tr>
+      <tr><td>Bouton principal</td><td>Fond orange, texte bleu nuit</td><td><code>--3r-orange</code></td></tr>
+      <tr><td>En-tête, pied de page</td><td>Bleu nuit, texte blanc</td><td><code>--3r-bleu-nuit</code></td></tr>
+      <tr><td>Fonds de section</td><td>Gris chaud</td><td><code>--3r-gris-chaud</code></td></tr>
+      <tr><td>Bordures, séparateurs</td><td>Gris filet</td><td><code>--3r-gris-filet</code></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- TYPOGRAPHIE -->
+<section id="typographie" class="sec">
+  <header class="sec-tete"><p class="surtitre">03 · Typographie</p><h2>Un serif républicain, une linéale lisible</h2><p>Libre Caslon Text reprend l’esprit des capitales à empattements du logo. Source Sans 3 assure la lecture de tous les textes. Les deux familles sont libres de droits (licence SIL OFL) et peuvent être installées sur tous les postes du parti.</p></header>
+  <div class="deux">
+    <article class="specimen"><p class="spec-nom">Libre Caslon Text</p><p class="spec-glyphes titre-font">Aa Bb Cc Éé 0123</p><p class="spec-alpha titre-font">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>àâçéèêëîïôûùüÿœ « » € ’</p><p class="small">Titres, chapeaux, citations, noms. Regular 400, Italique 400, Bold 700.</p></article>
+    <article class="specimen"><p class="spec-nom">Source Sans 3</p><p class="spec-glyphes">Aa Bb Cc Éé 0123</p><p class="spec-alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>àâçéèêëîïôûùüÿœ « » € ’</p><p class="small">Textes, tableaux, surtitres, signalétique. Regular 400, Italique 400, SemiBold 600, Bold 700.</p></article>
+  </div>
+  <h3 class="sous">Hiérarchie</h3>
+  <div class="hierarchie">
+    <div><span class="h-lbl">Titre principal<br><small>Caslon Bold · 40 px / 28 pt · interligne 1,1</small></span><span class="h-ex titre-font h1x">Assemblée générale ordinaire</span></div>
+    <div><span class="h-lbl">Titre de section<br><small>Caslon Bold · 30 px / 20 pt · interligne 1,15</small></span><span class="h-ex titre-font h2x">Rapport du secrétariat national</span></div>
+    <div><span class="h-lbl">Chapeau, citation<br><small>Caslon Italique · 20 px / 13 pt · interligne 1,4</small></span><span class="h-ex titre-font h3x"><i>« L’essentiel de l’information, en deux phrases. »</i></span></div>
+    <div><span class="h-lbl">Surtitre<br><small>Source Sans Bold · 13 px / 8,5 pt · capitales, interlettrage +14 %</small></span><span class="h-ex surtitre">Communiqué officiel</span></div>
+    <div><span class="h-lbl">Texte courant<br><small>Source Sans Regular · 17 px / 10,5 pt · interligne 1,55</small></span><span class="h-ex">Le texte courant se compose en bleu nuit sur fond clair, en lignes de 60 à 75 caractères.</span></div>
+    <div><span class="h-lbl">Légende<br><small>Source Sans Regular · 14 px / 8,5 pt · gris texte</small></span><span class="h-ex small">Source : secrétariat national, octobre 2026.</span></div>
+  </div>
+  <h3 class="sous">Règles par usage</h3>
+  <div class="tableau"><table>
+    <thead><tr><th>Usage</th><th>Titres</th><th>Texte</th><th>Règles</th></tr></thead>
+    <tbody>
+      <tr><td>Documents officiels</td><td>Caslon Bold 18 – 28 pt</td><td>Source Sans 10,5 pt, interligne 1,2</td><td>Marges 20 mm, en-tête et pied de page du modèle Word</td></tr>
+      <tr><td>Communiqués</td><td>Caslon Bold 22 pt, chapeau Caslon Italique 12 pt</td><td>Source Sans 10,5 pt</td><td>Numéro, lieu, date ; « ### » en fin de texte ; contact presse</td></tr>
+      <tr><td>Discours publiés</td><td>Caslon Bold 24 pt</td><td>Caslon Regular 12 pt, interligne 1,5</td><td>Citations en italique, intertitres Source Sans Bold capitales</td></tr>
+      <tr><td>Publications numériques</td><td>Caslon Bold 32 – 48 px</td><td>Source Sans 16 – 18 px</td><td>40 mots maximum sur une image</td></tr>
+      <tr><td>Signalétique</td><td>Source Sans Bold</td><td>—</td><td>Hauteur de capitale = distance de lecture / 50 (5 m → 100 mm)</td></tr>
+      <tr><td>Présentations</td><td>Caslon Bold 26 – 38 pt</td><td>Source Sans 14 – 18 pt</td><td>Modèle PowerPoint, une idée par diapositive</td></tr>
+      <tr><td>Badges, cartes de membre</td><td>Caslon Bold, nom 13 – 22 pt</td><td>Source Sans 7 – 9 pt</td><td>Fonction en capitales espacées orange foncé</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Sans les polices installées (Word, PowerPoint sur un poste non équipé) : Georgia remplace Libre Caslon Text, Arial remplace Source Sans 3.</p>
+</section>
+
+<!-- GRILLES -->
+<section id="grilles" class="sec">
+  <header class="sec-tete"><p class="surtitre">04 · Grilles et éléments graphiques</p><h2>Composer avec méthode</h2><p>Les mises en page reposent sur une grille simple et sur quatre éléments tirés du logo. Aucun autre symbole n’est ajouté à l’identité.</p></header>
+  <div class="deux">
+    <figure class="planche"><svg viewBox="0 0 420 594" role="img" aria-label="Grille A4 : marges 20 mm, 12 colonnes, gouttière 5 mm">
+      <rect width="420" height="594" fill="#FFFFFF" stroke="#E4DDD4"/>
+      <rect x="40.00" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="69.17" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="98.34" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="127.51" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="156.68" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="185.85" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="215.02" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="244.19" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="273.36" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="302.53" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="331.70" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/><rect x="360.87" y="110" width="19.17" height="444" fill="#FE6501" opacity=".08"/>
+      <rect x="40" y="40" width="340" height="514" fill="none" stroke="#1D2B4F" stroke-dasharray="4 3"/>
+      <rect x="40" y="40" width="340" height="60" fill="#F4EFEA"/><text x="50" y="76" font-family="Libre Caslon Text, Georgia, serif" font-size="13" font-weight="700" fill="#1D2B4F">En-tête : logo + nom</text>
+      <line x1="40" y1="104" x2="380" y2="104" stroke="#FE6501" stroke-width="2"/>
+      <text x="40" y="580" font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#4A5672">A4 · marges 20 mm · 12 colonnes · gouttière 5 mm</text>
+    </svg><figcaption>Grille des documents A4</figcaption></figure>
+    <figure class="planche"><svg viewBox="0 0 420 525" role="img" aria-label="Grille des publications 1080 × 1350 px">
+      <rect width="420" height="525" fill="#1D2B4F"/>
+      <rect x="34" y="34" width="352" height="457" fill="none" stroke="#FE6501" stroke-dasharray="4 3"/>
+      <rect x="34" y="34" width="352" height="152" fill="#FFFFFF" opacity=".06"/><rect x="34" y="186" width="352" height="152" fill="#FFFFFF" opacity=".03"/>
+      <text x="44" y="64" font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#FE6501" font-weight="700">ZONE LOGO + SURTITRE</text>
+      <text x="44" y="216" font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#FFFFFF">Zone titre (tiers central)</text>
+      <text x="44" y="368" font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#FFFFFF">Zone information</text>
+      <text x="34" y="512" font-family="Source Sans 3, Arial, sans-serif" font-size="11" fill="#F4EFEA">1 080 × 1 350 px · marges 8 % · trois bandes</text>
+    </svg><figcaption>Grille des publications numériques</figcaption></figure>
+  </div>
+  <h3 class="sous">Éléments graphiques</h3>
+  <div class="elements">
+    <article><svg viewBox="0 0 240 100" aria-hidden="true"><rect width="240" height="100" fill="#FFFFFF"/><line x1="20" y1="50" x2="220" y2="50" stroke="#FE6501" stroke-width="4"/></svg><h4>Le filet orange</h4><p>Sépare l’en-tête du contenu ou souligne un titre de couverture. Épaisseur : 1/100 de la largeur du support (2 mm sur A4).</p></article>
+    <article><svg viewBox="0 0 240 100" aria-hidden="true"><rect width="240" height="100" fill="#1D2B4F"/><path d="M-20 120 Q120 20 260 120" fill="none" stroke="#FE6501" stroke-width="3"/></svg><h4>L’arc du médaillon</h4><p>Courbe reprenant le rayon du médaillon, pour cadrer un visuel ou terminer une couverture. Jamais remplie de motifs.</p></article>
+    <article><svg viewBox="0 0 240 100" aria-hidden="true"><rect width="160" height="100" fill="#1D2B4F"/><rect x="160" width="80" height="100" fill="#FE6501"/></svg><h4>Les aplats</h4><p>Blocs de couleur pleine en bleu nuit et orange, découpés à angle droit. Pas de dégradé, pas de texture.</p></article>
+    <article><svg viewBox="0 0 240 100" aria-hidden="true"><rect width="240" height="100" fill="#F4EFEA"/><rect x="0" y="62" width="240" height="38" fill="#1D2B4F"/><text x="16" y="86" font-family="Libre Caslon Text, Georgia, serif" font-size="14" font-weight="700" fill="#FFFFFF">[Prénom NOM]</text></svg><h4>Le bandeau nominatif</h4><p>Bandeau bleu nuit en bas d’image pour nommer une personne : nom en Caslon Bold blanc, fonction en orange.</p></article>
+  </div>
+</section>
+
+<!-- GALERIES -->
+<section id="papeterie" class="sec">
+  <header class="sec-tete"><p class="surtitre">05 · Documents institutionnels</p><h2>Papeterie et modèles</h2><p>Modèles modifiables (Word, PowerPoint, SVG) et fichiers prêts à imprimer. Les aperçus ci-dessous sont générés à partir des fichiers téléchargeables.</p></header>
+  <div class="galerie" data-galerie="papeterie"></div>
+</section>
+<section id="evenementiel" class="sec">
+  <header class="sec-tete"><p class="surtitre">06 · Événementiel</p><h2>Congrès, assemblées, conférences</h2><p>Un même système pour tous les événements : fond bleu nuit, médaillon couleur, intitulé en Caslon. Le mobilier (pupitre, roll-up d’accueil) reste neutre pour servir à chaque occasion.</p></header>
+  <div class="galerie" data-galerie="evenementiel"></div>
+</section>
+<section id="textiles" class="sec">
+  <header class="sec-tete"><p class="surtitre">07 · Textiles et objets</p><h2>Textiles et objets officiels</h2><p>Chaque objet utilise une version autorisée du logo, dans les couleurs du parti. Les dimensions de marquage sont données pour une taille adulte M ; le fournisseur les adapte par taille.</p></header>
+  <div class="galerie" data-galerie="textiles"></div>
+</section>
+<section id="numerique" class="sec">
+  <header class="sec-tete"><p class="surtitre">08 · Communication numérique</p><h2>Bibliothèque de gabarits</h2><p>Les gabarits fixent la place du logo, des titres et des informations. Les textes affichés sont des exemples institutionnels à remplacer.</p></header>
+  <div class="galerie" data-galerie="numerique"></div>
+</section>
+<section id="signaletique" class="sec">
+  <header class="sec-tete"><p class="surtitre">09 · Signalétique</p><h2>Signalétique institutionnelle</h2><p>Du siège national aux permanences locales : même hiérarchie, mêmes matériaux, mêmes hauteurs de pose.</p></header>
+  <div class="galerie" data-galerie="signaletique"></div>
+</section>
+
+<!-- IMPRESSION -->
+<section id="impression" class="sec">
+  <header class="sec-tete"><p class="surtitre">10 · Production</p><h2>Spécifications d’impression et normes d’exportation</h2></header>
+  <div class="tableau"><table>
+    <thead><tr><th>Sujet</th><th>Règle</th></tr></thead>
+    <tbody>
+      <tr><td>Profil couleur</td><td>Impression offset et numérique : CMJN, profil Coated FOGRA39 (papier couché) ou PSO Uncoated (non couché). Écran : sRGB.</td></tr>
+      <tr><td>Couleurs d’accompagnement</td><td>Orange ≈ Pantone 1505 C, bleu nuit ≈ Pantone 2767 C pour la sérigraphie, la broderie et les objets.</td></tr>
+      <tr><td>Fond perdu</td><td>3 mm pour la papeterie, 5 à 10 mm pour les grands formats, selon l’imprimeur.</td></tr>
+      <tr><td>Traits de coupe</td><td>Présents sur toutes les épreuves (fichiers « _BAT.pdf »).</td></tr>
+      <tr><td>Résolution</td><td>300 dpi à l’échelle 1 pour la papeterie, 100 à 150 dpi pour les bâches et toiles, logos toujours en vectoriel (PDF ou SVG).</td></tr>
+      <tr><td>Noir</td><td>Texte en noir pur ou en bleu nuit ; jamais de petit texte en quadrichromie.</td></tr>
+      <tr><td>BAT</td><td>Aucun tirage sans bon à tirer signé par le service communication.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tableau"><table>
+    <thead><tr><th>Destination</th><th>Format d’export</th><th>Taille</th></tr></thead>
+    <tbody>
+      <tr><td>Imprimeur, graveur, brodeur</td><td>PDF vectoriel (logos), PDF/X-4 (documents)</td><td>Échelle 1, ou 1/10 pour les très grands formats</td></tr>
+      <tr><td>Site web</td><td>SVG (logos), WebP ou PNG (images)</td><td>Images de moins de 300 Ko</td></tr>
+      <tr><td>Réseaux sociaux</td><td>PNG (visuels avec texte), JPEG qualité 85 (photos)</td><td>Formats de la section numérique</td></tr>
+      <tr><td>Bureautique</td><td>PNG transparent 1 024 px</td><td>Insérer, ne jamais copier-coller depuis un PDF</td></tr>
+      <tr><td>Vidéo</td><td>PNG transparent 2 048 px ou SVG</td><td>Logo en incrustation, coin supérieur droit</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- TÉLÉCHARGEMENTS -->
+<section id="telechargements" class="sec">
+  <header class="sec-tete"><p class="surtitre">11 · Téléchargements</p><h2>Fichiers disponibles</h2><p>Tous les fichiers listés ici existent et sont téléchargeables. Les archives regroupent chaque famille de fichiers.</p></header>
+  <div id="fichiers" class="fichiers"><p class="small">Chargement de la liste des fichiers…</p></div>
+  <div class="print-seul tableau"><table><thead><tr><th>Famille</th><th>Contenu</th><th>Emplacement</th></tr></thead><tbody>
+    <tr><td>Logos</td><td>Officiel 3D, principal, monochromes, blanc, fonds foncés, cimier, avatars, favicons · SVG, PDF, PNG 512 à 4 096 px</td><td><code>assets/logos/</code> · archive 3R_logos.zip</td></tr>
+    <tr><td>Modèles</td><td>Word (5 modèles), PowerPoint, signature e-mail, documents à imprimer avec BAT et sources SVG</td><td><code>modeles/</code> · archive 3R_modeles.zip</td></tr>
+    <tr><td>Polices et couleurs</td><td>Libre Caslon Text, Source Sans 3 (TTF, WOFF2, licences), design tokens JSON et CSS, nuanciers ASE et GPL</td><td><code>assets/polices/</code>, <code>tokens/</code></td></tr>
+    <tr><td>Maquettes</td><td>42 maquettes PNG 2 400 px</td><td><code>maquettes/</code> · archive 3R_maquettes.zip</td></tr>
+    <tr><td>Tout</td><td>Identité complète</td><td>Archive 3R_identite-complete.zip, sur la plateforme web</td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- GUIDE -->
+<section id="guide" class="sec">
+  <header class="sec-tete"><p class="surtitre">12 · Guide d’application</p><h2>Appliquer l’identité, pas à pas</h2></header>
+  <ol class="etapes">
+    <li><b>Partir d’un modèle.</b> Ouvrir le modèle Word, PowerPoint ou SVG correspondant au besoin, jamais une page blanche.</li>
+    <li><b>Choisir la bonne version du logo.</b> Couleur sur fond clair ou bleu nuit ; blanc sur orange ; cimier seul sous 30 mm.</li>
+    <li><b>Respecter la zone de protection.</b> Une hauteur de cimier tout autour du médaillon.</li>
+    <li><b>Composer avec les deux polices.</b> Caslon pour les titres, Source Sans pour le reste. Pas d’autre police.</li>
+    <li><b>Doser les couleurs.</b> Le bleu nuit pour lire, l’orange pour signaler. Texte bleu nuit sur orange, jamais de petit texte blanc sur orange.</li>
+    <li><b>Vérifier avant diffusion.</b> Orthographe, accents, date, logo net, contraste. Pour l’impression : BAT signé.</li>
+    <li><b>En cas de doute.</b> Contacter le service communication du siège national : [contact@site-du-parti].</li>
+  </ol>
+</section>
+
+</main>
+</div>
+
+<div class="visionneuse" id="visionneuse" hidden>
+  <div class="v-boite" role="dialog" aria-modal="true" aria-labelledby="v-titre">
+    <button type="button" class="v-fermer" id="v-fermer">Fermer</button>
+    <div class="v-image" id="v-image"></div>
+    <div class="v-infos"><h3 id="v-titre"></h3><p class="small" id="v-format"></p><dl id="v-specs" class="specs"></dl><p class="v-png" id="v-png"></p></div>
+  </div>
+</div>
+<script src="js/donnees.js"></script>
+<script src="js/maquettes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
