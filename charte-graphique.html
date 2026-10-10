@@ -1,0 +1,434 @@
+<title>Charte graphique 3R</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout : guide éditorial — sommaire collant à gauche (bureau), sections pleine largeur, planches d'application en bas. */
+:root {
+  --orange: #FE6501;      /* Orange 3R — couleur signature */
+  --orange-fonce: #C24A00;/* Orange texte sur fond clair */
+  --nuit: #1D2B4F;        /* Bleu nuit — couleur d'accompagnement */
+  --blanc: #FFFFFF;
+  --gris: #F4EFEA;        /* Gris chaud — fonds */
+  --rouge: #C62828;       /* sémantique : interdit */
+  --vert: #2E7D32;        /* sémantique : conseillé */
+
+  --bg: #FBF9F6;
+  --surface: #FFFFFF;
+  --surface-2: var(--gris);
+  --fg: #1D2B4F;
+  --fg-soft: #4A5672;
+  --line: #E4DDD4;
+  --accent-text: var(--orange-fonce);
+
+  --f-titre: "Libre Caslon Text", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --f-texte: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111A30; --surface: #182543; --surface-2: #1F2D50; --fg: #F4EFEA; --fg-soft: #B9BFCF;
+    --line: #2C3B62; --accent-text: #FF8A3D; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111A30; --surface: #182543; --surface-2: #1F2D50; --fg: #F4EFEA; --fg-soft: #B9BFCF;
+  --line: #2C3B62; --accent-text: #FF8A3D; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-texte); font-size: 17px; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--f-titre); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--accent-text); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+.wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; max-width: 1240px; margin: 0 auto; padding-inline: 32px; padding-block: 0 96px; }
+nav.toc { position: sticky; top: env(safe-area-inset-top, 0px); align-self: start; padding-top: 40px; }
+nav.toc img { width: 88px; display: block; margin-bottom: 24px; }
+nav.toc ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; counter-reset: s; }
+nav.toc li { counter-increment: s; }
+nav.toc a { display: flex; gap: 10px; padding: 6px 10px; border-radius: 6px; color: var(--fg-soft); text-decoration: none; font-size: 15px; }
+nav.toc a::before { content: counter(s); font-variant-numeric: tabular-nums; color: var(--accent-text); font-weight: 700; width: 1ch; }
+nav.toc a:hover { background: var(--surface-2); color: var(--fg); }
+main { min-width: 0; display: grid; gap: 96px; padding-top: 40px; }
+
+/* En-tête */
+.hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); }
+.hero h1 { font-size: clamp(36px, 5.4vw, 64px); margin-top: 12px; }
+.hero h1 em { font-style: italic; font-weight: 400; color: var(--accent-text); }
+.hero p.lead { margin-top: 20px; max-width: 34em; color: var(--fg-soft); font-size: 19px; }
+.hero .medal { background: var(--gris); border-radius: 4px; aspect-ratio: 1; max-width: 100%; display: grid; place-items: center; padding: 8%; }
+.hero .medal img { width: 100%; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 28px; font-size: 14px; color: var(--fg-soft); }
+.meta b { color: var(--fg); }
+
+/* Sections */
+section { display: grid; gap: 28px; scroll-margin-top: 24px; }
+.sec-head { display: grid; gap: 10px; max-width: 46em; }
+.sec-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
+.sec-head p { color: var(--fg-soft); }
+h3 { font-size: 21px; }
+.grid { display: grid; gap: 20px; }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.small { font-size: 14px; color: var(--fg-soft); }
+.note { border-left: 3px solid var(--orange); padding: 4px 0 4px 16px; max-width: 46em; }
+
+/* Logo */
+.plate { aspect-ratio: 4 / 3; border-radius: 6px; display: grid; place-items: center; padding: 10%; max-width: 100%; }
+.plate img { max-height: 100%; max-width: 72%; }
+.p-blanc { background: #FFFFFF; border: 1px solid var(--line); }
+.p-gris { background: #F4EFEA; }
+.p-nuit { background: #1D2B4F; }
+.p-orange { background: #FE6501; }
+.tag { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.ok { color: var(--vert); } .ko { color: var(--rouge); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --vert: #7BC67F; --rouge: #FF7B7B; } }
+:root[data-theme="dark"] { --vert: #7BC67F; --rouge: #FF7B7B; }
+
+.zone { position: relative; background: #FFFFFF; border: 1px solid var(--line); border-radius: 6px; padding: 48px; display: grid; place-items: center; }
+.zone .box { position: relative; outline: 2px dashed var(--orange); outline-offset: 0; padding: 30px; }
+.zone .box img { width: min(240px, 50vw); display: block; outline: 1px solid rgba(29,43,79,.35); }
+.zone .x { position: absolute; font: 700 14px var(--f-titre); color: #C24A00; }
+.zone .x.t { top: 6px; left: 50%; transform: translateX(-50%); }
+.zone .x.l { left: 8px; top: 50%; transform: translateY(-50%); }
+.minis { display: flex; align-items: flex-end; gap: 28px; flex-wrap: wrap; }
+.minis figure { margin: 0; display: grid; gap: 6px; justify-items: center; }
+
+.dont .plate { position: relative; }
+.dont .plate::after { content: ""; position: absolute; inset: 10px; border: 2px solid var(--rouge); border-radius: 4px; pointer-events: none; }
+.d-stretch img { transform: scaleX(1.45); }
+.d-color img { filter: hue-rotate(160deg) saturate(1.4); }
+.d-shadow img { filter: drop-shadow(8px 10px 6px rgba(0,0,0,.55)); }
+.d-busy { background: repeating-linear-gradient(45deg, #FE6501 0 14px, #FFB27F 14px 28px, #1D2B4F 28px 42px); }
+.d-rotate img { transform: rotate(-18deg); }
+.d-crop { overflow: hidden; } .d-crop img { max-width: 140%; transform: translate(18%, 22%); }
+
+/* Couleurs */
+.sw { border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); display: grid; min-width: 0; }
+.sw .chip { height: 128px; padding: 14px; display: flex; align-items: flex-end; font: 700 20px var(--f-titre); }
+.sw dl { margin: 0; padding: 14px; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 14px; }
+.sw dt { color: var(--fg-soft); }
+.sw dd { margin: 0; font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.copy { font: 600 13px var(--f-texte); border: 1px solid var(--line); background: var(--surface-2); color: var(--fg); padding: 6px 10px; border-radius: 6px; cursor: pointer; margin: 0 14px 14px; justify-self: start; }
+.copy:hover { border-color: var(--orange); }
+.ratio { display: flex; height: 44px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+.ratio span { display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+.pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.pair { border-radius: 6px; padding: 16px; display: grid; gap: 4px; min-height: 104px; align-content: space-between; border: 1px solid var(--line); }
+.pair b { font: 700 22px var(--f-titre); }
+.pair small { font-size: 13px; font-weight: 600; }
+
+/* Typo */
+.spec { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 20px; padding: 20px 0; border-top: 1px solid var(--line); align-items: baseline; }
+.spec .lbl { font-size: 13px; color: var(--fg-soft); }
+.spec .lbl b { display: block; color: var(--fg); font-size: 14px; }
+.t-display { font: 700 clamp(34px, 4.6vw, 56px)/1.08 var(--f-titre); }
+.t-h2 { font: 700 32px/1.15 var(--f-titre); }
+.t-h3 { font: 400 italic 24px/1.25 var(--f-titre); }
+.t-body { font: 400 17px/1.6 var(--f-texte); max-width: 60ch; }
+.t-label { font: 700 13px var(--f-texte); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); }
+
+/* Ton */
+.voice .card h3 { font-size: 20px; }
+.say { display: grid; gap: 8px; font-size: 15px; margin-top: 4px; }
+.say div { display: grid; grid-template-columns: 22px 1fr; gap: 6px; }
+.say .i { font-weight: 700; }
+
+/* Applications */
+.apps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.mock { display: grid; gap: 10px; min-width: 0; }
+.poster { aspect-ratio: 2 / 3; background: #1D2B4F; color: #FFFFFF; border-radius: 4px; padding: 9% 9% 7%; display: grid; grid-template-rows: auto 1fr auto; container-type: inline-size; overflow: hidden; max-width: 100%; }
+.poster .k { font: 700 4.4cqw var(--f-texte); letter-spacing: .16em; text-transform: uppercase; color: #FE6501; }
+.poster h4 { font: 700 13.5cqw/1.0 var(--f-titre); margin: 6cqw 0 0; }
+.poster h4 em { color: #FE6501; font-weight: 700; }
+.poster .rule { width: 22cqw; height: 1.6cqw; background: #FE6501; margin: 7cqw 0 5cqw; }
+.poster p { font: 400 5cqw/1.35 var(--f-texte); color: #F4EFEA; }
+.poster .foot { display: flex; align-items: center; justify-content: space-between; gap: 4cqw; border-top: 1px solid rgba(255,255,255,.25); padding-top: 5cqw; }
+.poster .foot img { width: 24cqw; }
+.poster .foot span { font: 700 4.6cqw/1.3 var(--f-texte); text-align: right; }
+
+.post { aspect-ratio: 1; background: #FE6501; color: #1D2B4F; border-radius: 4px; padding: 9%; display: grid; grid-template-rows: auto 1fr auto; container-type: inline-size; max-width: 100%; }
+.post .q { font: 700 22cqw/0.6 var(--f-titre); color: #FFFFFF; }
+.post blockquote { margin: 0; font: 700 8.6cqw/1.15 var(--f-titre); align-self: center; }
+.post .foot { display: flex; justify-content: space-between; align-items: center; font: 700 4.4cqw var(--f-texte); letter-spacing: .06em; text-transform: uppercase; }
+.post .foot img { width: 17cqw; }
+
+.member { aspect-ratio: 85.6 / 54; background: #FFFFFF; color: #1D2B4F; border-radius: 10px; border: 1px solid var(--line); display: grid; grid-template-columns: 34% 1fr; overflow: hidden; container-type: inline-size; max-width: 100%; }
+.member .side { background: #FE6501; display: grid; place-items: center; padding: 10%; }
+.member .side img { width: 100%; }
+.member .body { padding: 7% 8%; display: grid; align-content: space-between; }
+.member .t { font: 700 3.4cqw var(--f-texte); letter-spacing: .14em; text-transform: uppercase; color: #C24A00; }
+.member .n { font: 700 6.4cqw/1.1 var(--f-titre); }
+.member .row { display: flex; justify-content: space-between; font: 400 3.4cqw var(--f-texte); color: #4A5672; font-variant-numeric: tabular-nums; }
+.letter { aspect-ratio: 21 / 29.7; background: #FFFFFF; color: #1D2B4F; border: 1px solid var(--line); border-radius: 2px; padding: 9% 10%; display: grid; grid-template-rows: auto auto 1fr auto; gap: 5cqw; container-type: inline-size; max-width: 100%; }
+.letter header { display: flex; align-items: center; gap: 4cqw; border-bottom: 0.8cqw solid #FE6501; padding-bottom: 4cqw; }
+.letter header img { width: 15cqw; }
+.letter header b { font: 700 4.4cqw/1.2 var(--f-titre); }
+.letter .ln { display: grid; gap: 2.2cqw; }
+.letter .ln i { display: block; height: 1.2cqw; background: #E4DDD4; border-radius: 1px; }
+.letter footer { font: 400 2.6cqw var(--f-texte); color: #4A5672; border-top: 1px solid #E4DDD4; padding-top: 3cqw; }
+.ex { font-size: 12px; color: var(--fg-soft); }
+
+/* Ressources */
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-soft); }
+td code { font-family: var(--f-mono); font-size: 13px; overflow-wrap: anywhere; }
+.tablewrap { overflow-x: auto; }
+
+@media (max-width: 960px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 0; padding-inline: 20px; }
+  nav.toc { position: static; padding-top: 24px; }
+  nav.toc ol { display: flex; flex-wrap: wrap; gap: 4px; }
+  nav.toc img { width: 64px; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero .medal { max-width: 360px; }
+  .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .wrap { padding-inline: 16px; }
+  .g2, .g3, .g4, .apps { grid-template-columns: minmax(0, 1fr); }
+  .spec { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  main { gap: 72px; }
+}
+@media (prefers-reduced-motion: no-preference) { nav.toc a, .copy { transition: background .15s, border-color .15s; } }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Sommaire">
+    <img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo 3R">
+    <ol>
+      <li><a href="#logo">Le logo</a></li>
+      <li><a href="#couleurs">Les couleurs</a></li>
+      <li><a href="#typographie">La typographie</a></li>
+      <li><a href="#ton">Le ton</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#ressources">Ressources</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Charte graphique · Version 1.0</div>
+        <h1>Rassemblement des Républicains <em>Réformateurs</em></h1>
+        <p class="lead">Ce guide fixe les règles d'usage du logo, des couleurs, des typographies et du ton du parti. Il s'adresse aux équipes de campagne, aux fédérations, aux graphistes et aux imprimeurs, pour que chaque affiche, tract ou publication soit reconnue au premier regard.</p>
+        <div class="meta"><span><b>Couleur signature</b> Orange 3R</span><span><b>Accompagnement</b> Bleu nuit</span><span><b>Mise à jour</b> octobre 2026</span></div>
+      </div>
+      <div class="medal"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Médaillon 3R orange et blanc"></div>
+    </header>
+
+    <!-- 1. LOGO -->
+    <section id="logo">
+      <div class="sec-head">
+        <div class="eyebrow">01 · Le logo</div>
+        <h2>Un médaillon, trois lettres</h2>
+        <p>Le médaillon associe le sigle « 3R » en cimier, le nom complet du parti en couronne et le monogramme RRR entrelacé au centre : trois lettres qui se tiennent, comme les trois mots du nom. Il se reproduit toujours en entier ; le sigle et le monogramme ne s'utilisent jamais seuls.</p>
+      </div>
+
+      <div class="grid g4">
+        <div class="card"><div class="plate p-blanc"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Version couleur sur fond blanc"></div><h3>Version couleur</h3><p class="small">Version de référence, sur blanc ou gris chaud. À privilégier partout où c'est possible.</p></div>
+        <div class="card"><div class="plate p-nuit"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Version couleur sur bleu nuit"></div><h3>Couleur sur bleu nuit</h3><p class="small">Le médaillon orange ressort fortement sur le bleu nuit. Idéal pour les affiches et les fonds de scène.</p></div>
+        <div class="card"><div class="plate p-orange"><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt="Version blanche sur orange"></div><h3>Blanc sur orange</h3><p class="small">Sur un fond orange 3R, on utilise la version blanche : t-shirts, banderoles, réseaux sociaux.</p></div>
+        <div class="card"><div class="plate p-gris"><img src="assets/logo/vectoriel/logo_3R_orange.svg" alt="Version orange une couleur"></div><h3>Une couleur</h3><p class="small">Pour la sérigraphie, la broderie ou la gravure en une seule encre. Existe en orange et en blanc.</p></div>
+      </div>
+
+      <div class="grid g2">
+        <div class="card">
+          <h3>Zone de protection</h3>
+          <div class="zone"><span class="x t">x</span><span class="x l">x</span><div class="box"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo avec sa zone de protection"></div></div>
+          <p class="small">Aucun texte, image ni bord de page ne doit entrer dans la zone pointillée. Sa marge <b>x</b> est égale à la hauteur du cimier « 3R » (environ 1/8 de la largeur du logo).</p>
+        </div>
+        <div class="card">
+          <h3>Tailles minimales</h3>
+          <div class="minis">
+            <figure><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="" width="120"><figcaption class="small">Confortable</figcaption></figure>
+            <figure><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="" width="80"><figcaption class="small">Minimum écran</figcaption></figure>
+            <figure><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="" width="48"><figcaption class="small">Trop petit</figcaption></figure>
+          </div>
+          <p class="small">En dessous de <b>25 mm</b> à l'impression ou de <b>80 px</b> à l'écran, le nom écrit en couronne devient illisible. Pour un favicon ou une très petite icône, on utilise le fichier <code>favicon.ico</code> prévu à cet effet.</p>
+        </div>
+      </div>
+
+      <div class="dont">
+        <h3 style="margin-bottom:16px">À ne pas faire</h3>
+        <div class="grid g3">
+          <div class="card"><div class="plate p-blanc d-stretch"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo déformé"></div><span class="tag ko">✕ Déformer</span><p class="small">On redimensionne toujours en gardant les proportions.</p></div>
+          <div class="card"><div class="plate p-blanc d-color"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo recoloré"></div><span class="tag ko">✕ Changer les couleurs</span><p class="small">Seules les versions couleur, orange et blanche existent.</p></div>
+          <div class="card"><div class="plate p-blanc d-shadow"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo avec ombre portée"></div><span class="tag ko">✕ Ajouter des effets</span><p class="small">Pas d'ombre, de relief, de contour ni de dégradé.</p></div>
+          <div class="card"><div class="plate d-busy"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo sur fond chargé"></div><span class="tag ko">✕ Fond chargé</span><p class="small">Sur une photo ou un motif, on pose le logo sur un aplat uni.</p></div>
+          <div class="card"><div class="plate p-blanc d-rotate"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo incliné"></div><span class="tag ko">✕ Incliner</span><p class="small">Le médaillon reste toujours droit, cimier en haut.</p></div>
+          <div class="card"><div class="plate p-blanc d-crop"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="Logo coupé"></div><span class="tag ko">✕ Recadrer</span><p class="small">Le médaillon n'est jamais coupé par un bord ou une image.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. COULEURS -->
+    <section id="couleurs">
+      <div class="sec-head">
+        <div class="eyebrow">02 · Les couleurs</div>
+        <h2>L'orange en signature, le bleu nuit pour porter le discours</h2>
+        <p>L'orange 3R est la couleur qu'on reconnaît de loin, sur une affiche comme sur un écran. Le bleu nuit lui donne du sérieux et porte les textes. Le blanc et le gris chaud laissent respirer les mises en page.</p>
+      </div>
+
+      <div class="grid g4">
+        <div class="sw"><div class="chip" style="background:#FE6501;color:#1D2B4F">Orange 3R</div>
+          <dl><dt>HEX</dt><dd>#FE6501</dd><dt>RVB</dt><dd>254 · 101 · 1</dd><dt>CMJN</dt><dd>0 · 70 · 100 · 0</dd><dt>Pantone</dt><dd>≈ 1505 C</dd></dl>
+          <button class="copy" type="button" data-hex="#FE6501">Copier #FE6501</button></div>
+        <div class="sw"><div class="chip" style="background:#1D2B4F;color:#FFFFFF">Bleu nuit</div>
+          <dl><dt>HEX</dt><dd>#1D2B4F</dd><dt>RVB</dt><dd>29 · 43 · 79</dd><dt>CMJN</dt><dd>100 · 80 · 30 · 45</dd><dt>Pantone</dt><dd>≈ 2767 C</dd></dl>
+          <button class="copy" type="button" data-hex="#1D2B4F">Copier #1D2B4F</button></div>
+        <div class="sw"><div class="chip" style="background:#FFFFFF;color:#1D2B4F;border-bottom:1px solid #E4DDD4">Blanc</div>
+          <dl><dt>HEX</dt><dd>#FFFFFF</dd><dt>RVB</dt><dd>255 · 255 · 255</dd><dt>CMJN</dt><dd>0 · 0 · 0 · 0</dd><dt>Usage</dt><dd>Fonds, texte sur bleu</dd></dl>
+          <button class="copy" type="button" data-hex="#FFFFFF">Copier #FFFFFF</button></div>
+        <div class="sw"><div class="chip" style="background:#F4EFEA;color:#1D2B4F">Gris chaud</div>
+          <dl><dt>HEX</dt><dd>#F4EFEA</dd><dt>RVB</dt><dd>244 · 239 · 234</dd><dt>CMJN</dt><dd>0 · 2 · 4 · 4</dd><dt>Usage</dt><dd>Fonds de section</dd></dl>
+          <button class="copy" type="button" data-hex="#F4EFEA">Copier #F4EFEA</button></div>
+      </div>
+      <p class="small">Couleur complémentaire réservée aux textes : <b>Orange foncé #C24A00</b> (RVB 194 · 74 · 0), pour écrire en orange sur fond blanc de façon lisible. Les références Pantone et CMJN sont des équivalences à valider sur épreuve avec l'imprimeur.</p>
+
+      <div class="grid" style="gap:10px">
+        <h3>Proportions conseillées</h3>
+        <div class="ratio" role="img" aria-label="Répartition : 50 % blanc ou gris, 30 % bleu nuit, 20 % orange">
+          <span style="flex:50;background:#F4EFEA;color:#1D2B4F">Blanc / gris 50 %</span>
+          <span style="flex:30;background:#1D2B4F;color:#FFFFFF">Bleu nuit 30 %</span>
+          <span style="flex:20;background:#FE6501;color:#1D2B4F">Orange 20 %</span>
+        </div>
+        <p class="small">L'orange garde sa force quand il reste rare : un logo, un mot-clé, un bouton, un bandeau. Sur les supports militants (t-shirts, banderoles), il peut devenir la couleur de fond.</p>
+      </div>
+
+      <div class="grid" style="gap:12px">
+        <h3>Contrastes de lecture</h3>
+        <div class="pairs">
+          <div class="pair" style="background:#FE6501;color:#1D2B4F"><b>Bleu nuit sur orange</b><small>✓ 4,7 : 1, tous textes</small></div>
+          <div class="pair" style="background:#1D2B4F;color:#FFFFFF"><b>Blanc sur bleu nuit</b><small>✓ 13,9 : 1, tous textes</small></div>
+          <div class="pair" style="background:#FFFFFF;color:#C24A00"><b>Orange foncé sur blanc</b><small>✓ 4,9 : 1, tous textes</small></div>
+          <div class="pair" style="background:#1D2B4F;color:#FE6501"><b>Orange sur bleu nuit</b><small>✓ 4,7 : 1, tous textes</small></div>
+          <div class="pair" style="background:#FE6501;color:#FFFFFF"><b>Blanc sur orange</b><small>⚠ 3,0 : 1, gros titres gras seulement</small></div>
+          <div class="pair" style="background:#FFFFFF;color:#FE6501"><b>Orange sur blanc</b><small>⚠ 3,0 : 1, gros titres seulement</small></div>
+        </div>
+        <p class="note small">Pour un texte courant sur fond orange, on écrit en <b>bleu nuit</b>, pas en blanc : le blanc sur orange reste trop pâle à lire en petit, surtout sur téléphone et en plein soleil.</p>
+      </div>
+    </section>
+
+    <!-- 3. TYPO -->
+    <section id="typographie">
+      <div class="sec-head">
+        <div class="eyebrow">03 · La typographie</div>
+        <h2>Un serif républicain, une linéale lisible</h2>
+        <p><b>Libre Caslon Text</b> reprend l'esprit des lettres à empattements du logo : elle donne aux titres la gravité d'un fronton de mairie. <b>Source Sans 3</b> assure la lecture des textes, des tracts aux écrans de téléphone. Les deux sont gratuites (Google Fonts) et couvrent les accents du français.</p>
+      </div>
+      <div>
+        <div class="spec"><div class="lbl"><b>Grand titre</b>Libre Caslon Text Bold</div><div class="t-display">Rassembler pour réformer</div></div>
+        <div class="spec"><div class="lbl"><b>Titre de section</b>Libre Caslon Text Bold</div><div class="t-h2">Des réformes au service des citoyens</div></div>
+        <div class="spec"><div class="lbl"><b>Chapeau, citation</b>Libre Caslon Text Italique</div><div class="t-h3">« La République se renforce quand chacun y trouve sa place. »</div></div>
+        <div class="spec"><div class="lbl"><b>Surtitre</b>Source Sans 3 Bold, capitales espacées</div><div class="t-label">Programme · Éducation</div></div>
+        <div class="spec"><div class="lbl"><b>Texte courant</b>Source Sans 3 Regular, 16–18 px</div><p class="t-body">Le texte courant se compose en Source Sans 3, en bleu nuit sur fond clair, avec des lignes d'environ 65 caractères. On réserve le gras aux mots-clés et on évite les paragraphes entiers en capitales.</p></div>
+      </div>
+      <p class="note small">Dans Word ou PowerPoint, si les polices ne sont pas installées, on utilise <b>Georgia</b> pour les titres et <b>Calibri</b> ou <b>Arial</b> pour le texte.</p>
+    </section>
+
+    <!-- 4. TON -->
+    <section id="ton" class="voice">
+      <div class="sec-head">
+        <div class="eyebrow">04 · Le ton</div>
+        <h2>Comment parle le 3R</h2>
+        <p>Quatre traits guident chaque prise de parole, du discours de meeting au post sur les réseaux sociaux.</p>
+      </div>
+      <div class="grid g2">
+        <div class="card"><h3>Rassembleur</h3><p class="small">On parle à tous les citoyens, au « nous ». On cherche ce qui unit plutôt que ce qui divise.</p>
+          <div class="say"><div><span class="i ok">✓</span><span>« Ensemble, construisons une République qui protège chacun. »</span></div><div><span class="i ko">✕</span><span>« Eux contre nous. »</span></div></div></div>
+        <div class="card"><h3>Réformateur et ambitieux</h3><p class="small">On propose des solutions concrètes, chiffrées, avec un calendrier. On parle d'action et de résultats.</p>
+          <div class="say"><div><span class="i ok">✓</span><span>« Notre proposition : un guichet unique dans chaque commune. »</span></div><div><span class="i ko">✕</span><span>« Tout va changer, faites-nous confiance. »</span></div></div></div>
+        <div class="card"><h3>Institutionnel et sérieux</h3><p class="small">On respecte les institutions, les adversaires et les faits. On cite ses sources.</p>
+          <div class="say"><div><span class="i ok">✓</span><span>« Nous défendrons cette réforme devant l'Assemblée. »</span></div><div><span class="i ko">✕</span><span>Attaques personnelles, rumeurs, majuscules partout.</span></div></div></div>
+        <div class="card"><h3>Proche du terrain</h3><p class="small">Des mots simples, des phrases courtes, des exemples du quotidien : l'école, la santé, l'emploi, les routes.</p>
+          <div class="say"><div><span class="i ok">✓</span><span>« Pour que votre enfant ait un enseignant devant lui à chaque rentrée. »</span></div><div><span class="i ko">✕</span><span>« Optimisation structurelle de la gouvernance éducative. »</span></div></div></div>
+      </div>
+      <p class="note small">Proposition de signature : <b>« Rassembler pour réformer »</b>. Elle reprend les deux idées du nom. Elle est à valider par la direction du parti avant tout usage officiel.</p>
+    </section>
+
+    <!-- 5. APPLICATIONS -->
+    <section id="applications">
+      <div class="sec-head">
+        <div class="eyebrow">05 · Applications</div>
+        <h2>La charte en situation</h2>
+        <p>Quatre supports types, montrés avec des textes d'exemple. Les dates, lieux et noms sont à remplacer.</p>
+      </div>
+      <div class="apps">
+        <div class="mock">
+          <div class="poster">
+            <div class="k">Grand meeting</div>
+            <div><h4>Rassembler pour <em>réformer</em></h4><div class="rule"></div><p>Samedi [date] · 15 h<br>[Lieu], [Ville]</p></div>
+            <div class="foot"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""><span>Entrée libre<br>Venez nombreux</span></div>
+          </div>
+          <span class="small"><b>Affiche</b> · bleu nuit dominant, accents orange</span>
+        </div>
+        <div class="mock">
+          <div class="post">
+            <div class="q">“</div>
+            <blockquote>Une école publique forte dans chaque commune.</blockquote>
+            <div class="foot"><span>#3R · Programme</span><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""></div>
+          </div>
+          <span class="small"><b>Post réseaux sociaux</b> · 1080 × 1080, texte bleu nuit sur orange</span>
+          <div class="member">
+            <div class="side"><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""></div>
+            <div class="body"><div class="t">Carte d'adhérent · 2026</div><div class="n">[Prénom Nom]</div><div class="row"><span>N° 000 000</span><span>Fédération [Ville]</span></div></div>
+          </div>
+          <span class="small"><b>Carte d'adhérent</b> · format carte bancaire 85,6 × 54 mm</span>
+        </div>
+        <div class="mock">
+          <div class="letter">
+            <header><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""><b>Rassemblement des<br>Républicains Réformateurs</b></header>
+            <div class="ln"><i style="width:40%"></i><i style="width:28%"></i></div>
+            <div class="ln"><i></i><i></i><i style="width:92%"></i><i></i><i style="width:70%"></i><i></i><i></i><i style="width:55%"></i></div>
+            <footer>Siège national · [adresse] · [téléphone] · [site web]</footer>
+          </div>
+          <span class="small"><b>Papier à en-tête</b> · A4, filet orange sous le logo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. RESSOURCES -->
+    <section id="ressources">
+      <div class="sec-head">
+        <div class="eyebrow">06 · Ressources</div>
+        <h2>Fichiers à utiliser</h2>
+        <p>Tous les fichiers sont dans le dépôt du parti, dossier <code>assets/logo/</code>. Pour l'impression, on transmet toujours le PDF ou le SVG vectoriel, jamais une capture d'écran.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Usage</th><th>Fichier</th><th>Format</th></tr></thead>
+          <tbody>
+            <tr><td>Imprimeur, grand format, broderie</td><td><code>vectoriel/logo_3R_couleur.pdf</code></td><td>PDF vectoriel</td></tr>
+            <tr><td>Site web, documents numériques</td><td><code>vectoriel/logo_3R_couleur.svg</code></td><td>SVG</td></tr>
+            <tr><td>Réseaux sociaux, Word, PowerPoint</td><td><code>vectoriel/logo_3R_couleur_2048.png</code></td><td>PNG transparent</td></tr>
+            <tr><td>Sur fond orange ou foncé</td><td><code>vectoriel/logo_3R_blanc.svg / .pdf / _2048.png</code></td><td>Une couleur</td></tr>
+            <tr><td>Sérigraphie une encre orange</td><td><code>vectoriel/logo_3R_orange.svg / .pdf / _2048.png</code></td><td>Une couleur</td></tr>
+            <tr><td>Icône de site, onglet du navigateur</td><td><code>favicon.ico</code>, <code>logo_3R_192.png</code></td><td>ICO / PNG</td></tr>
+            <tr><td>Polices</td><td>Libre Caslon Text, Source Sans 3</td><td>Google Fonts (gratuites)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var hex = b.dataset.hex, label = 'Copier ' + hex;
+    function done(t) { b.textContent = t; setTimeout(function () { b.textContent = label; }, 1600); }
+    try {
+      navigator.clipboard.writeText(hex).then(function () { done('Copié ✓'); }, function () { done(hex); });
+    } catch (e) { done(hex); }
+  });
+});
+</script>

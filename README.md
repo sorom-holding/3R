@@ -4,6 +4,8 @@ Dépôt du parti politique **3R** (Rassemblement des Républicains Réformateurs
 
 ## Identité visuelle
 
+La charte graphique complète (logo, couleurs, typographie, ton, applications) est dans [`charte-graphique.html`](charte-graphique.html).
+
 ![Logo 3R](assets/logo/logo_3R_512.png)
 
 | Fichier | Usage |
