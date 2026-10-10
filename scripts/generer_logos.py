@@ -31,6 +31,22 @@ def export(svg, folder, name, sizes=PNG_SIZES):
         cairosvg.svg2png(bytestring=svg.encode(), write_to=p(folder, 'png', f'{name}_{w}px.png'), output_width=w)
 
 
+def crop_to_artwork(svg):
+    """Recadre le viewBox au plus près du dessin (supprime la marge héritée de l'image source)."""
+    vb = re.search(r'viewBox="([\d.-]+) ([\d.-]+) ([\d.]+) ([\d.]+)"', svg)
+    ox, oy, vw, vh = (float(v) for v in vb.groups())
+    png = cairosvg.svg2png(bytestring=svg.encode(), output_width=2000)
+    import io
+    alpha = np.asarray(Image.open(io.BytesIO(png)).convert('RGBA'))[..., 3]
+    ys, xs = np.nonzero(alpha > 8)
+    k = vw / alpha.shape[1]
+    x0, y0, x1, y1 = ox + xs.min() * k, oy + ys.min() * k, ox + (xs.max() + 1) * k, oy + (ys.max() + 1) * k
+    w, h = x1 - x0, y1 - y0
+    svg = re.sub(r'viewBox="[^"]+"', f'viewBox="{x0:.1f} {y0:.1f} {w:.1f} {h:.1f}"', svg, count=1)
+    svg = re.sub(r'(<svg[^>]*?) width="[^"]+" height="[^"]+"', lambda m: f'{m.group(1)} width="{w / 3:.0f}" height="{h / 3:.0f}"', svg, count=1)
+    return svg
+
+
 def recolor(svg, mapping):
     for a, b in mapping.items():
         svg = svg.replace(f'fill="{a}"', f'fill="{b}"')
@@ -71,20 +87,20 @@ def trace_crest():
 
 def boxed(inner_svg, bg, size=1024, scale=0.72, radius=0.0, circle=False):
     """Place un SVG centré dans un carré de couleur (avatar, favicon)."""
-    vb = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', inner_svg)
-    iw, ih = float(vb.group(1)), float(vb.group(2))
+    vb = re.search(r'viewBox="([\d.-]+) ([\d.-]+) ([\d.]+) ([\d.]+)"', inner_svg)
+    ox, oy, iw, ih = (float(v) for v in vb.groups())
     body = re.sub(r'^.*?<svg[^>]*>|</svg>\s*$', '', inner_svg, flags=re.S)
     k = size * scale / max(iw, ih)
     tx, ty = (size - iw * k) / 2, (size - ih * k) / 2
     shape = (f'<circle cx="{size/2}" cy="{size/2}" r="{size/2}" fill="{bg}"/>' if circle else
              f'<rect width="{size}" height="{size}" rx="{size*radius}" fill="{bg}"/>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}" width="{size}" height="{size}">'
-            f'{shape}<g transform="translate({tx:.2f} {ty:.2f}) scale({k:.5f})">{body}</g></svg>\n')
+            f'{shape}<g transform="translate({tx:.2f} {ty:.2f}) scale({k:.5f}) translate({-ox:.2f} {-oy:.2f})">{body}</g></svg>\n')
 
 
 def main():
-    couleur = open(p('01_principal', '3R_principal_couleur.svg')).read()
-    mono = open(p('02_monochrome', '3R_mono_orange.svg')).read()
+    couleur = crop_to_artwork(open(p('01_principal', '3R_principal_couleur.svg')).read())
+    mono = crop_to_artwork(open(p('02_monochrome', '3R_mono_orange.svg')).read())
 
     export(couleur, '01_principal', '3R_principal_couleur')
     export(mono, '02_monochrome', '3R_mono_orange')
