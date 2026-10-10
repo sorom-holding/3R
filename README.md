@@ -21,5 +21,19 @@ Dépôt du parti politique **3R** (Rassemblement des Républicains Réformateurs
 | Orange 3R (principal) | `#FE6501` |
 | Blanc | `#FFFFFF` |
 
-> Le fichier SVG contient une image matricielle (PNG) intégrée, et non des tracés vectoriels :
-> il ne s'agrandit donc pas sans perte au-delà de 1254 px.
+### Logo vectoriel (recommandé)
+
+Version redessinée en tracés vectoriels nets (aplats orange `#FE6501` et blanc, sans les effets 3D).
+Elle s'agrandit sans perte et convient à l'impression grand format (affiches, banderoles, t-shirts).
+
+| Fichier | Usage |
+|---|---|
+| `assets/logo/vectoriel/logo_3R_couleur.svg` / `.pdf` | Logo officiel orange et blanc |
+| `assets/logo/vectoriel/logo_3R_orange.svg` / `.pdf` | Une couleur, lettres transparentes (sur fond clair) |
+| `assets/logo/vectoriel/logo_3R_blanc.svg` / `.pdf` | Une couleur blanche (sur fond foncé ou orange) |
+| `assets/logo/vectoriel/*_2048.png` | Exports PNG 2048 px, fond transparent |
+
+Les fichiers du dossier `assets/logo/` (hors `vectoriel/`) sont les originaux fournis : le SVG d'origine
+contient une image matricielle intégrée, pas des tracés vectoriels.
+
+La vectorisation est reproductible avec `scripts/vectoriser_logo.py` (Python + potrace).
