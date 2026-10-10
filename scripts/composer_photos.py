@@ -18,8 +18,8 @@ OUT = os.path.join(ROOT, 'maquettes', 'photos')
 O, OF, N, B, G, GT = '#FE6501', '#C24A00', '#1D2B4F', '#FFFFFF', '#F4EFEA', '#4A5672'
 SERIF, SANS = "'Libre Caslon Text', Georgia, serif", "'Source Sans 3', Arial, sans-serif"
 FICHIERS = {'couleur': '01_principal/3R_principal_couleur.svg', 'blanc': '03_blanc/3R_blanc.svg',
-            'cimier-orange': '05_miniature/3R_cimier_orange.svg', 'cimier-blanc': '05_miniature/3R_cimier_blanc.svg'}
-RATIO = {'couleur': 1.1025, 'blanc': 1.1025, 'cimier-orange': 0.538, 'cimier-blanc': 0.538}
+            'orange': '02_monochrome/3R_mono_orange.svg', 'cimier-orange': '05_miniature/3R_cimier_orange.svg', 'cimier-blanc': '05_miniature/3R_cimier_blanc.svg'}
+RATIO = {'couleur': 1.1025, 'blanc': 1.1025, 'orange': 1.1025, 'cimier-orange': 0.538, 'cimier-blanc': 0.538}
 
 
 def logo(kind, cx, cy, w):
@@ -128,7 +128,7 @@ def orange(photo, large=False):
     return ((r - b) > 90) & (r > 180)
 
 
-def remplacer(photo, bbox, kind, masque=None, alignement='bas', largeur=None, limite=None, garder_devant=True):
+def remplacer(photo, bbox, kind, masque=None, alignement='bas', largeur=None, limite=None, garder_devant=True, teinte_blanc=None):
     """Efface un logo redessiné (zone bbox) et pose le logo officiel à sa place.
     masque : pixels du logo d'origine (par défaut, les pixels orange de la zone) ;
     limite : masque des pixels où le nouveau logo a le droit d'apparaître (ex. la toile d'un drapeau)."""
@@ -152,6 +152,9 @@ def remplacer(photo, bbox, kind, masque=None, alignement='bas', largeur=None, li
     fond = cv2.cvtColor(cv2.inpaint(cv2.cvtColor(photo, cv2.COLOR_RGB2BGR), (masque & ~devant).astype(np.uint8) * 255, 9, cv2.INPAINT_TELEA), cv2.COLOR_BGR2RGB)
     Wl = largeur or w
     img = logo_raster(kind, Wl)
+    if teinte_blanc is not None:  # parties blanches du logo prises dans la couleur du support (impression une couleur)
+        clair = img[..., :3].min(axis=2) > 0.8
+        img[clair, :3] = np.array(teinte_blanc, np.float32) / 255
     hl, wl = img.shape[:2]
     x0 = int(round(x + (w - wl) / 2))
     y0 = int(round(y + h - hl)) if alignement == 'bas' else int(round(y + (h - hl) / 2))
@@ -250,7 +253,51 @@ def signaletique(photo):
     return photo
 
 
-RETOUCHES = {'conference-de-presse': ('2.webp', conference), 'signaletique-evenement': ('4.webp', signaletique)}
+def blanc_px(photo, seuil=200):
+    r, g, b = [photo[..., i].astype(int) for i in range(3)]
+    return (r > seuil) & (g > seuil) & (b > seuil - 15)
+
+
+def boite(x, y, w, h, H, W):
+    z = np.zeros((H, W), bool)
+    z[y:y + h, x:x + w] = True
+    return z
+
+
+def bracelet(photo):
+    H, W = photo.shape[:2]
+    r, g, b = [photo[..., i].astype(int) for i in range(3)]
+    m = ((r - b) < 60) & boite(360, 620, 530, 240, H, W)
+    return remplacer(photo, (370, 630, 510, 225), 'cimier-blanc', masque=m, largeur=430, alignement='centre', garder_devant=False)
+
+
+def stylo(photo):
+    return remplacer(photo, (877, 285, 159, 158), 'cimier-orange', largeur=150, alignement='centre', garder_devant=False)
+
+
+def badges_ronds(photo):
+    from scipy import ndimage
+    H, W = photo.shape[:2]
+    # petit badge blanc : médaillon orange remplacé par le logo couleur
+    photo = remplacer(photo, (112, 544, 396, 431), 'couleur', largeur=390, garder_devant=False)
+    # grand badge orange : motif blanc effacé dans le disque, logo blanc officiel posé
+    disque = np.zeros((H, W), np.uint8)
+    cv2.ellipse(disque, (857, 630), (322, 310), 0, 0, 360, 1, -1)
+    m = blanc_px(photo, 200) & disque.astype(bool) & boite(560, 320, 600, 620, H, W)
+    return remplacer(photo, (560, 330, 600, 600), 'blanc', masque=m, largeur=545, alignement='centre', garder_devant=False)
+
+
+def sac(photo):
+    return remplacer(photo, (354, 369, 541, 603), 'couleur', largeur=540, garder_devant=False, teinte_blanc=(236, 229, 214))
+
+
+def casquette(photo):
+    return remplacer(photo, (364, 258, 399, 450), 'couleur', largeur=400, garder_devant=False)
+
+
+RETOUCHES = {
+    'bracelet': ('6.webp', bracelet), 'stylo': ('7.webp', stylo), 'badges-ronds': ('8.webp', badges_ronds),
+    'sac': ('9.webp', sac), 'casquette': ('10.webp', casquette),'conference-de-presse': ('2.webp', conference), 'signaletique-evenement': ('4.webp', signaletique)}
 
 
 def main(src):

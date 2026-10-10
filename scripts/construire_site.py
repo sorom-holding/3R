@@ -71,6 +71,11 @@ def apercus():
     items = [i for i in items if i['image']]
     # Photos de mise en situation finalisées (logos officiels posés par scripts/composer_photos.py)
     photos = [
+        ('casquette', 'textiles', 'Casquette (photo)', 'Taille unique', [['Textile', 'Coton bleu nuit'], ['Marquage', 'Médaillon couleur brodé en façade']]),
+        ('sac', 'textiles', 'Sac en toile (photo)', '380 × 420 mm', [['Textile', 'Coton écru'], ['Marquage', 'Médaillon orange une couleur, sérigraphie']]),
+        ('badges-ronds', 'textiles', 'Badges épinglette (photo)', 'Ø 38 et 56 mm', [['Petit', 'Fond blanc, médaillon couleur'], ['Grand', 'Fond orange, médaillon blanc']]),
+        ('stylo', 'textiles', 'Stylo (photo)', 'Corps bleu nuit', [['Marquage', 'Cimier 3R orange, tampographie'], ['Détails', 'Bagues orange et métal']]),
+        ('bracelet', 'textiles', 'Bracelet silicone (photo)', 'Ø 65 mm · largeur 12 mm', [['Matière', 'Silicone orange'], ['Marquage', 'Cimier 3R blanc, impression ou gravure remplie']]),
         ('conference-de-presse', 'evenementiel', 'Conférence de presse (photo)', 'Mur médias 3 000 × 2 400 mm · nappe · drapeau', [['Mur médias', 'Grand médaillon et nom du parti, motif alterné médaillon et cimier'], ['Nappe', 'Bleu nuit, médaillon couleur, bande orange'], ['Drapeau', 'Orange, médaillon blanc']]),
         ('signaletique-evenement', 'evenementiel', 'Totem et signalétique d’événement (photo)', 'Totem 800 × 2 000 mm · panneaux A3', [['Totem', 'Cimier découpé en tête, médaillon couleur, intitulé en Libre Caslon blanc'], ['Panneaux', 'Médaillon couleur, intitulé bleu nuit, flèche orange']]),
         ('accreditations', 'evenementiel', 'Badges et accréditations (photo)', 'A6 · 105 × 148 mm', [['Code couleur', 'Délégué orange, presse bleu nuit, invité gris chaud, organisation orange foncé'], ['Tour de cou', 'Ruban 20 mm assorti à la catégorie']]),
