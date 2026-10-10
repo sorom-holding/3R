@@ -175,6 +175,91 @@ h3 { font-size: 21px; }
 .letter footer { font: 400 2.6cqw var(--f-texte); color: #4A5672; border-top: 1px solid #E4DDD4; padding-top: 3cqw; }
 .ex { font-size: 12px; color: var(--fg-soft); }
 
+/* Supports étendus */
+.subhead { display: grid; gap: 6px; max-width: 46em; padding-top: 24px; border-top: 1px solid var(--line); }
+.subhead h3 { font-size: 24px; }
+.subhead p { color: var(--fg-soft); font-size: 15px; }
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; align-items: start; }
+.row.r2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.cap { font-size: 14px; color: var(--fg-soft); }
+.cap b { color: var(--fg); }
+canvas.crowd { display: block; width: 100%; height: 100%; }
+
+.poster2 { aspect-ratio: 2 / 3; background: #1D2B4F; color: #FFFFFF; border-radius: 4px; overflow: hidden; display: grid; grid-template-rows: 54% 1fr; container-type: inline-size; max-width: 100%; }
+.poster2 .pbody { padding: 6cqw 8cqw 7cqw; display: grid; align-content: space-between; position: relative; }
+.poster2 .k { font: 700 4.2cqw var(--f-texte); letter-spacing: .16em; text-transform: uppercase; color: #FE6501; }
+.poster2 h4 { font: 700 11cqw/1.02 var(--f-titre); margin: 2cqw 0 0; }
+.poster2 .foot { display: flex; justify-content: space-between; align-items: end; gap: 4cqw; font: 700 4.4cqw/1.3 var(--f-texte); }
+.poster2 .foot img { width: 22cqw; margin-top: -14cqw; }
+
+.poster3 { aspect-ratio: 2 / 3; background: #FE6501; border-radius: 4px; overflow: hidden; display: grid; grid-template-rows: 1fr auto; container-type: inline-size; position: relative; max-width: 100%; }
+.poster3 svg { width: 100%; height: 100%; display: block; }
+.poster3 .ph { position: absolute; top: 4cqw; left: 4cqw; font: 600 3.4cqw var(--f-texte); color: #1D2B4F; background: rgba(255,255,255,.75); padding: 1cqw 2.4cqw; border-radius: 99px; }
+.poster3 .band { background: #1D2B4F; color: #FFFFFF; padding: 6cqw 8cqw; display: grid; gap: 1.5cqw; position: relative; }
+.poster3 .band b { font: 700 9cqw/1.05 var(--f-titre); }
+.poster3 .band span { font: 700 4cqw var(--f-texte); letter-spacing: .12em; text-transform: uppercase; color: #FE6501; }
+.poster3 .band img { position: absolute; right: 6cqw; top: -11cqw; width: 22cqw; }
+.poster3 .vote { position: absolute; right: 0; top: 12cqw; background: #FFFFFF; color: #1D2B4F; font: 700 5cqw var(--f-texte); letter-spacing: .1em; text-transform: uppercase; padding: 2cqw 5cqw; }
+
+.poster4 { aspect-ratio: 2 / 3; background: #FE6501; color: #1D2B4F; border-radius: 4px; padding: 9cqw 8cqw; display: grid; grid-template-rows: 1fr auto; container-type: inline-size; max-width: 100%; }
+.poster4 h4 { font: 700 17cqw/0.98 var(--f-titre); margin: 0; align-self: center; }
+.poster4 h4 em { color: #FFFFFF; font-style: italic; font-weight: 400; }
+.poster4 .foot { display: flex; justify-content: space-between; align-items: center; border-top: 0.6cqw solid #1D2B4F; padding-top: 4cqw; font: 700 4.4cqw var(--f-texte); letter-spacing: .08em; text-transform: uppercase; }
+.poster4 .foot img { width: 18cqw; }
+
+.bcard { aspect-ratio: 85 / 55; border-radius: 6px; overflow: hidden; container-type: inline-size; max-width: 100%; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 6px 18px rgba(29,43,79,.12); }
+.bcard.recto { background: #FE6501; display: grid; place-items: center; }
+.bcard.recto img { width: 34cqw; }
+.bcard.verso { background: #FFFFFF; color: #1D2B4F; display: grid; grid-template-columns: 1fr auto; padding: 8cqw 8cqw 7cqw; border-left: 3cqw solid #FE6501; }
+.bcard.verso .who b { display: block; font: 700 7cqw/1.1 var(--f-titre); }
+.bcard.verso .who span { font: 700 3.4cqw var(--f-texte); letter-spacing: .12em; text-transform: uppercase; color: #C24A00; }
+.bcard.verso .ct { align-self: end; grid-column: 1 / -1; display: grid; gap: .6cqw; font: 400 3.6cqw/1.35 var(--f-texte); color: #4A5672; font-variant-numeric: tabular-nums; }
+.bcard.verso img { width: 15cqw; }
+
+.flag-stage { background: var(--surface-2); border-radius: 8px; padding: 20px; display: grid; place-items: center; min-height: 220px; }
+.flag-stage svg { width: 100%; max-width: 320px; height: auto; display: block; }
+.banner { aspect-ratio: 5 / 1; background: #FE6501; color: #1D2B4F; border-radius: 3px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 4cqw; padding: 0 4cqw; container-type: inline-size; max-width: 100%; box-shadow: inset 0 0 0 0.8cqw #FFFFFF, inset 0 0 0 1.2cqw #FE6501; }
+.banner img { height: 15cqw; }
+.banner b { font: 700 6.4cqw/1 var(--f-titre); }
+.banner span { font: 700 2.2cqw var(--f-texte); letter-spacing: .14em; text-transform: uppercase; text-align: right; }
+.rollup { aspect-ratio: 85 / 200; background: #1D2B4F; color: #FFFFFF; border-radius: 3px 3px 0 0; overflow: hidden; display: grid; grid-template-rows: auto 42% 1fr auto; container-type: inline-size; max-width: 100%; }
+.rollup .top { padding: 9cqw 8cqw 6cqw; display: grid; justify-items: center; }
+.rollup .top img { width: 52cqw; }
+.rollup .mid { padding: 8cqw; display: grid; align-content: center; gap: 4cqw; }
+.rollup .mid b { font: 700 13cqw/1.02 var(--f-titre); }
+.rollup .mid span { width: 20cqw; height: 1.6cqw; background: #FE6501; }
+.rollup .bot { background: #FE6501; color: #1D2B4F; text-align: center; padding: 5cqw; font: 700 5cqw var(--f-texte); letter-spacing: .1em; text-transform: uppercase; }
+.rollup-foot { height: 10px; background: #8A8F99; border-radius: 0 0 4px 4px; margin: 0 -4%; }
+
+.goodies { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.goodie { display: grid; gap: 10px; min-width: 0; }
+.goodie .stage { aspect-ratio: 1; background: var(--surface-2); border-radius: 8px; display: grid; place-items: center; max-width: 100%; }
+.goodie svg { width: 78%; height: auto; display: block; }
+
+.social { display: grid; grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.fb { aspect-ratio: 820 / 312; position: relative; border-radius: 6px; overflow: hidden; container-type: inline-size; background: #1D2B4F; max-width: 100%; }
+.fb canvas { position: absolute; inset: 0; }
+.fb .txt { position: absolute; right: 5cqw; top: 50%; transform: translateY(-50%); text-align: right; color: #FFFFFF; display: grid; gap: 1.4cqw; justify-items: end; }
+.fb .txt b { font: 700 4.8cqw/1.05 var(--f-titre); }
+.fb .txt span { background: #FE6501; color: #1D2B4F; font: 700 1.7cqw var(--f-texte); letter-spacing: .14em; text-transform: uppercase; padding: .8cqw 1.6cqw; }
+.fb .pp { position: absolute; left: 4cqw; bottom: 4cqw; width: 17cqw; aspect-ratio: 1; border-radius: 50%; background: #FFFFFF; display: grid; place-items: center; box-shadow: 0 0 0 .6cqw #FFFFFF; }
+.fb .pp img { width: 84%; }
+.story { aspect-ratio: 9 / 16; position: relative; border-radius: 10px; overflow: hidden; container-type: inline-size; background: #1D2B4F; max-width: 100%; }
+.story canvas { position: absolute; inset: 0; }
+.story .s { position: absolute; inset: auto 0 0 0; padding: 10cqw 8cqw; background: linear-gradient(to top, #1D2B4F 55%, rgba(29,43,79,0)); color: #FFFFFF; display: grid; gap: 4cqw; }
+.story .s b { font: 700 11cqw/1.02 var(--f-titre); }
+.story .s span { justify-self: start; background: #FE6501; color: #1D2B4F; font: 700 4.4cqw var(--f-texte); letter-spacing: .1em; text-transform: uppercase; padding: 2cqw 4cqw; border-radius: 99px; }
+.story .lg { position: absolute; top: 7cqw; left: 7cqw; width: 22cqw; }
+
+.photo-rules { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.photo-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.photo-demo figure { margin: 0; display: grid; gap: 6px; }
+.photo-demo .ph { aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden; }
+.rules { display: grid; gap: 10px; font-size: 15px; }
+.rules div { display: grid; grid-template-columns: 22px 1fr; gap: 6px; }
+
+@media (max-width: 960px) { .goodies { grid-template-columns: repeat(2, minmax(0, 1fr)); } .social, .photo-rules { grid-template-columns: minmax(0, 1fr); } .story { max-width: 260px; } }
+
 /* Ressources */
 table { border-collapse: collapse; width: 100%; font-size: 15px; }
 th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -209,7 +294,8 @@ td code { font-family: var(--f-mono); font-size: 13px; overflow-wrap: anywhere; 
       <li><a href="#couleurs">Les couleurs</a></li>
       <li><a href="#typographie">La typographie</a></li>
       <li><a href="#ton">Le ton</a></li>
-      <li><a href="#applications">Applications</a></li>
+      <li><a href="#applications">Supports</a></li>
+      <li><a href="#goodies">Goodies</a></li>
       <li><a href="#ressources">Ressources</a></li>
     </ol>
   </nav>
@@ -358,48 +444,258 @@ td code { font-family: var(--f-mono); font-size: 13px; overflow-wrap: anywhere; 
     <!-- 5. APPLICATIONS -->
     <section id="applications">
       <div class="sec-head">
-        <div class="eyebrow">05 · Applications</div>
+        <div class="eyebrow">05 · Supports</div>
         <h2>La charte en situation</h2>
-        <p>Quatre supports types, montrés avec des textes d'exemple. Les dates, lieux et noms sont à remplacer.</p>
+        <p>Les supports types du parti, de l'affiche de campagne au drapeau de meeting. Les textes entre crochets (dates, lieux, noms) sont des exemples à remplacer.</p>
       </div>
-      <div class="apps">
-        <div class="mock">
-          <div class="poster">
-            <div class="k">Grand meeting</div>
-            <div><h4>Rassembler pour <em>réformer</em></h4><div class="rule"></div><p>Samedi [date] · 15 h<br>[Lieu], [Ville]</p></div>
-            <div class="foot"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""><span>Entrée libre<br>Venez nombreux</span></div>
-          </div>
-          <span class="small"><b>Affiche</b> · bleu nuit dominant, accents orange</span>
+
+      <div class="subhead"><h3>Style photo</h3><p>Les photos montrent des citoyens réels, sur le terrain. Pour les affiches et les bannières, elles passent en duotone bleu nuit et orange : l'image devient immédiatement « 3R », même prise au téléphone.</p></div>
+      <div class="photo-rules">
+        <div class="photo-demo">
+          <figure><div class="ph"><canvas class="crowd" data-seed="7" data-mode="crowd" aria-label="Exemple de visuel de foule en duotone"></canvas></div><figcaption class="cap"><b>Foule, meeting</b> · rassemblement</figcaption></figure>
+          <figure><div class="ph"><canvas class="crowd" data-seed="21" data-mode="hands" aria-label="Exemple de visuel de mains levées en duotone"></canvas></div><figcaption class="cap"><b>Mains levées</b> · engagement</figcaption></figure>
         </div>
-        <div class="mock">
-          <div class="post">
-            <div class="q">“</div>
-            <blockquote>Une école publique forte dans chaque commune.</blockquote>
-            <div class="foot"><span>#3R · Programme</span><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""></div>
+        <div class="rules">
+          <div><span class="ok">✓</span><span>Photos du parti : militants, porte-à-porte, meetings, élus au contact des habitants.</span></div>
+          <div><span class="ok">✓</span><span>Lumière naturelle, visages souriants, regards vers l'avant ou vers le haut.</span></div>
+          <div><span class="ok">✓</span><span>Traitement duotone (ombres bleu nuit, lumières orange) pour les grands formats.</span></div>
+          <div><span class="ko">✕</span><span>Photos de banque d'images avec des inconnus : elles sonnent faux et posent des questions de droits.</span></div>
+          <div><span class="ko">✕</span><span>Publier le visage d'une personne sans son accord écrit, surtout un mineur.</span></div>
+          <p class="small">Les visuels ci-contre sont des illustrations générées pour la charte. Ils seront remplacés par les vraies photos du parti.</p>
+        </div>
+      </div>
+
+      <div class="subhead"><h3>Affiches</h3><p>Trois modèles : l'événement (photo et date), le candidat (portrait et nom), le message (slogan seul). Formats d'impression : 40 × 60 cm, 60 × 80 cm, 120 × 176 cm (abribus).</p></div>
+      <div class="row">
+        <div class="goodie">
+          <div class="poster2">
+            <canvas class="crowd" data-seed="3" data-mode="crowd" aria-label="Visuel de foule en duotone"></canvas>
+            <div class="pbody">
+              <div><div class="k">Grand meeting · [Ville]</div><h4>Rassembler pour réformer</h4></div>
+              <div class="foot"><span>Samedi [date] · 15 h<br>[Lieu]</span><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""></div>
+            </div>
           </div>
-          <span class="small"><b>Post réseaux sociaux</b> · 1080 × 1080, texte bleu nuit sur orange</span>
+          <span class="cap"><b>Affiche événement</b> · photo en haut, informations en bas</span>
+        </div>
+        <div class="goodie">
+          <div class="poster3">
+            <svg viewBox="0 0 300 330" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Emplacement du portrait du candidat">
+              <defs><radialGradient id="pg" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="#FF9A52"/><stop offset="1" stop-color="#FE6501"/></radialGradient></defs>
+              <rect width="300" height="330" fill="url(#pg)"/>
+              <circle cx="150" cy="130" r="62" fill="#1D2B4F"/>
+              <path d="M38 330 Q42 222 150 208 Q258 222 262 330 Z" fill="#1D2B4F"/>
+              <path d="M128 208 L150 262 L172 208 Z" fill="#FFFFFF"/>
+            </svg>
+            <span class="ph">Photo du candidat</span>
+            <span class="vote">Votez 3R</span>
+            <div class="band"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""><span>Candidat · [Circonscription]</span><b>[Prénom NOM]</b></div>
+          </div>
+          <span class="cap"><b>Affiche candidat</b> · portrait sur fond orange, nom sur bandeau bleu nuit</span>
+        </div>
+        <div class="goodie">
+          <div class="poster4">
+            <h4>Rassembler pour <em>réformer.</em></h4>
+            <div class="foot"><span>3R · Rassemblement des<br>Républicains Réformateurs</span><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""></div>
+          </div>
+          <span class="cap"><b>Affiche message</b> · typographie seule, orange plein</span>
+        </div>
+      </div>
+
+      <div class="subhead"><h3>Papeterie</h3><p>Carte de visite des élus et responsables, carte d'adhérent et papier à en-tête. Impression conseillée sur papier mat 350 g pour les cartes.</p></div>
+      <div class="row r2">
+        <div class="goodie">
+          <div class="bcard recto"><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt="Recto de la carte de visite"></div>
+          <span class="cap"><b>Carte de visite, recto</b> · 85 × 55 mm, logo blanc sur orange</span>
+        </div>
+        <div class="goodie">
+          <div class="bcard verso">
+            <div class="who"><span>Secrétaire général</span><b>[Prénom NOM]</b></div>
+            <img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="">
+            <div class="ct"><span>+000 00 00 00 00</span><span>prenom.nom@[site-du-parti]</span><span>Siège national · [adresse], [ville]</span></div>
+          </div>
+          <span class="cap"><b>Carte de visite, verso</b> · nom en Libre Caslon, filet orange à gauche</span>
+        </div>
+        <div class="goodie">
           <div class="member">
             <div class="side"><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""></div>
-            <div class="body"><div class="t">Carte d'adhérent · 2026</div><div class="n">[Prénom Nom]</div><div class="row"><span>N° 000 000</span><span>Fédération [Ville]</span></div></div>
+            <div class="body"><div class="t">Carte d'adhérent · 2026</div><div class="n">[Prénom Nom]</div><div class="row" style="display:flex"><span>N° 000 000</span><span>Fédération [Ville]</span></div></div>
           </div>
-          <span class="small"><b>Carte d'adhérent</b> · format carte bancaire 85,6 × 54 mm</span>
+          <span class="cap"><b>Carte d'adhérent</b> · format carte bancaire 85,6 × 54 mm</span>
         </div>
-        <div class="mock">
-          <div class="letter">
+        <div class="goodie">
+          <div class="letter" style="max-width:300px">
             <header><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""><b>Rassemblement des<br>Républicains Réformateurs</b></header>
             <div class="ln"><i style="width:40%"></i><i style="width:28%"></i></div>
             <div class="ln"><i></i><i></i><i style="width:92%"></i><i></i><i style="width:70%"></i><i></i><i></i><i style="width:55%"></i></div>
             <footer>Siège national · [adresse] · [téléphone] · [site web]</footer>
           </div>
-          <span class="small"><b>Papier à en-tête</b> · A4, filet orange sous le logo</span>
+          <span class="cap"><b>Papier à en-tête</b> · A4, filet orange sous le logo</span>
+        </div>
+      </div>
+
+      <div class="subhead"><h3>Drapeaux et signalétique</h3><p>Pour les meetings, les cortèges et les permanences. Le drapeau reprend le médaillon blanc sur orange : il se reconnaît de loin, même en mouvement.</p></div>
+      <div class="row">
+        <div class="goodie">
+          <div class="flag-stage">
+            <svg viewBox="0 0 320 240" role="img" aria-label="Drapeau du parti">
+              <rect x="18" y="10" width="6" height="226" rx="3" fill="#8A8F99"/>
+              <circle cx="21" cy="10" r="6" fill="#C9A227"/>
+              <path d="M24 22 Q110 8 200 22 T306 22 L306 174 Q216 160 130 174 T24 174 Z" fill="#FE6501"/>
+              <path d="M24 22 Q110 8 200 22 T306 22 L306 174 Q216 160 130 174 T24 174 Z" fill="#000" opacity=".06" transform="translate(0 0)"/>
+              <image href="assets/logo/vectoriel/logo_3R_blanc.svg" x="112" y="34" width="112" height="112"/>
+            </svg>
+          </div>
+          <span class="cap"><b>Drapeau</b> · 150 × 100 cm, médaillon blanc centré</span>
+        </div>
+        <div class="goodie">
+          <div class="flag-stage">
+            <svg viewBox="0 0 320 240" role="img" aria-label="Drapeau flamme">
+              <rect x="146" y="14" width="5" height="222" rx="2" fill="#8A8F99"/>
+              <path d="M151 14 Q232 18 232 92 L232 214 L151 214 Z" fill="#FE6501"/>
+              <path d="M151 170 L232 170 L232 214 L151 214 Z" fill="#1D2B4F"/>
+              <image href="assets/logo/vectoriel/logo_3R_blanc.svg" x="160" y="44" width="64" height="64"/>
+              <text x="191.5" y="198" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="13" fill="#FFFFFF" letter-spacing="1.5">VOTEZ 3R</text>
+              <path d="M120 236 L178 236 L168 228 L130 228 Z" fill="#5A606C"/>
+            </svg>
+          </div>
+          <span class="cap"><b>Drapeau flamme</b> · 2,5 m, pour les stands et les entrées</span>
+        </div>
+        <div class="goodie">
+          <div class="flag-stage" style="padding:28px 20px">
+            <div style="width:100%;max-width:320px;display:grid;gap:12px">
+              <svg viewBox="0 0 300 70" role="img" aria-label="Fanions">
+                <path d="M0 8 Q150 30 300 8" fill="none" stroke="#8A8F99" stroke-width="2"/>
+                <g fill="#FE6501"><path d="M14 11 L44 15 L28 52 Z"/><path d="M104 20 L134 21 L118 60 Z"/><path d="M194 20 L224 18 L208 58 Z"/></g>
+                <g fill="#1D2B4F"><path d="M59 17 L89 19 L73 56 Z"/><path d="M149 21 L179 21 L163 60 Z"/><path d="M239 16 L269 12 L253 52 Z"/></g>
+              </svg>
+              <span class="small" style="text-align:center">Guirlande de fanions alternés</span>
+            </div>
+          </div>
+          <span class="cap"><b>Fanions</b> · décoration des salles et des permanences</span>
+        </div>
+      </div>
+      <div class="row r2" style="align-items:end">
+        <div class="goodie">
+          <div class="banner"><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""><b>Rassembler pour réformer</b><span>Rassemblement des<br>Républicains Réformateurs</span></div>
+          <span class="cap"><b>Banderole</b> · 500 × 100 cm, bâche avec œillets, pour les cortèges et les façades</span>
+        </div>
+        <div class="goodie" style="max-width:220px;justify-self:center">
+          <div class="rollup">
+            <div class="top"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""></div>
+            <canvas class="crowd" data-seed="12" data-mode="crowd" aria-label="Visuel de foule en duotone"></canvas>
+            <div class="mid"><span></span><b>Ensemble, réformons la République</b></div>
+            <div class="bot">[site-du-parti]</div>
+          </div>
+          <div class="rollup-foot"></div>
+          <span class="cap"><b>Kakémono</b> · 85 × 200 cm, fond de scène et stands</span>
+        </div>
+      </div>
+
+      <div class="subhead"><h3>Réseaux sociaux</h3><p>Photo de profil : le médaillon couleur sur fond blanc, recadré en rond. Bannière et stories reprennent le duotone et le bandeau orange.</p></div>
+      <div class="social">
+        <div class="goodie">
+          <div class="fb">
+            <canvas class="crowd" data-seed="31" data-mode="crowd" aria-label="Visuel de foule en duotone"></canvas>
+            <div class="txt"><b>Rassembler<br>pour réformer</b><span>Rejoignez le 3R</span></div>
+            <div class="pp"><img src="assets/logo/vectoriel/logo_3R_couleur.svg" alt=""></div>
+          </div>
+          <span class="cap"><b>Bannière Facebook</b> · 820 × 312 px, avec la photo de profil ronde</span>
+        </div>
+        <div class="goodie">
+          <div class="story">
+            <canvas class="crowd" data-seed="44" data-mode="hands" aria-label="Visuel de mains levées en duotone"></canvas>
+            <img class="lg" src="assets/logo/vectoriel/logo_3R_couleur.svg" alt="">
+            <div class="s"><b>Votre voix compte.</b><span>Adhérez →</span></div>
+          </div>
+          <span class="cap"><b>Story</b> · 1080 × 1920 px</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="goodie">
+          <div class="post">
+            <div class="q">“</div>
+            <blockquote>Une école publique forte dans chaque commune.</blockquote>
+            <div class="foot"><span>#3R · Programme</span><img src="assets/logo/vectoriel/logo_3R_blanc.svg" alt=""></div>
+          </div>
+          <span class="cap"><b>Post citation</b> · 1080 × 1080 px, texte bleu nuit sur orange</span>
         </div>
       </div>
     </section>
 
-    <!-- 6. RESSOURCES -->
+    <!-- 6. GOODIES -->
+    <section id="goodies">
+      <div class="sec-head">
+        <div class="eyebrow">06 · Goodies</div>
+        <h2>Le 3R au quotidien</h2>
+        <p>Les objets distribués aux militants et aux sympathisants. Règle simple : l'objet est orange, bleu nuit ou écru, et le logo est toujours dans une version autorisée (couleur, blanc ou orange). On marque en sérigraphie ou en broderie avec le PDF vectoriel.</p>
+      </div>
+      <div class="goodies">
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="T-shirt orange">
+            <path d="M62 24 L84 16 Q100 30 116 16 L138 24 L178 54 L160 82 L144 72 L144 186 L56 186 L56 72 L40 82 L22 54 Z" fill="#FE6501"/>
+            <path d="M84 16 Q100 30 116 16 Q100 36 84 16 Z" fill="#C24A00"/>
+            <image href="assets/logo/vectoriel/logo_3R_blanc.svg" x="74" y="54" width="52" height="52"/>
+          </svg></div><span class="cap"><b>T-shirt militant</b> · orange, logo blanc sur le cœur ou en grand</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="T-shirt blanc">
+            <path d="M62 24 L84 16 Q100 30 116 16 L138 24 L178 54 L160 82 L144 72 L144 186 L56 186 L56 72 L40 82 L22 54 Z" fill="#FFFFFF" stroke="#D9D2C8" stroke-width="2"/>
+            <path d="M84 16 Q100 30 116 16 Q100 36 84 16 Z" fill="#FE6501"/>
+            <image href="assets/logo/vectoriel/logo_3R_couleur.svg" x="70" y="56" width="60" height="60"/>
+          </svg></div><span class="cap"><b>T-shirt blanc</b> · logo couleur, col orange</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Casquette bleu nuit">
+            <path d="M42 122 Q40 58 100 52 Q160 58 160 122 Z" fill="#1D2B4F"/>
+            <path d="M100 52 L100 122" stroke="#2E4170" stroke-width="2"/>
+            <circle cx="100" cy="54" r="4" fill="#2E4170"/>
+            <path d="M34 122 Q100 108 168 122 Q186 138 148 146 Q100 136 52 146 Q20 138 34 122 Z" fill="#16213D"/>
+            <image href="assets/logo/vectoriel/logo_3R_couleur.svg" x="74" y="68" width="52" height="52"/>
+          </svg></div><span class="cap"><b>Casquette</b> · bleu nuit, logo brodé couleur</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Mug blanc">
+            <path d="M138 78 Q172 78 172 108 Q172 138 138 138" fill="none" stroke="#E8E2DA" stroke-width="12"/>
+            <rect x="46" y="54" width="96" height="116" rx="10" fill="#FFFFFF" stroke="#D9D2C8" stroke-width="2"/>
+            <rect x="46" y="54" width="96" height="14" rx="6" fill="#FE6501"/>
+            <image href="assets/logo/vectoriel/logo_3R_couleur.svg" x="64" y="82" width="60" height="60"/>
+          </svg></div><span class="cap"><b>Mug</b> · blanc, liseré orange</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Sac en toile">
+            <path d="M74 74 Q74 30 100 30 Q126 30 126 74" fill="none" stroke="#E2D5C3" stroke-width="7"/>
+            <rect x="44" y="70" width="112" height="118" rx="3" fill="#EFE6D8"/>
+            <rect x="44" y="70" width="112" height="118" rx="3" fill="none" stroke="#D9CBB6" stroke-width="2"/>
+            <image href="assets/logo/vectoriel/logo_3R_orange.svg" x="68" y="88" width="64" height="64"/>
+            <text x="100" y="174" text-anchor="middle" font-family="Libre Caslon Text, Georgia, serif" font-weight="700" font-size="11" fill="#1D2B4F">Rassembler pour réformer</text>
+          </svg></div><span class="cap"><b>Sac en toile</b> · écru, logo orange une couleur</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Badge rond">
+            <circle cx="100" cy="102" r="70" fill="#C9C2B8"/>
+            <circle cx="100" cy="98" r="70" fill="#FFFFFF"/>
+            <image href="assets/logo/vectoriel/logo_3R_couleur.svg" x="40" y="38" width="120" height="120"/>
+          </svg></div><span class="cap"><b>Badge épinglette</b> · Ø 38 ou 56 mm</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Stylo">
+            <g transform="rotate(-32 100 100)">
+              <rect x="22" y="90" width="140" height="20" rx="10" fill="#1D2B4F"/>
+              <path d="M162 92 L186 100 L162 108 Z" fill="#C9C2B8"/>
+              <rect x="38" y="86" width="56" height="5" rx="2.5" fill="#FE6501"/>
+              <rect x="22" y="90" width="18" height="20" rx="9" fill="#FE6501"/>
+              <text x="104" y="104.5" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="10" fill="#FFFFFF" letter-spacing="1.2">3R · RASSEMBLER</text>
+            </g>
+          </svg></div><span class="cap"><b>Stylo</b> · bleu nuit, clip orange</span></div>
+        <div class="goodie"><div class="stage">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Bracelet">
+            <ellipse cx="100" cy="104" rx="72" ry="40" fill="none" stroke="#C24A00" stroke-width="20"/>
+            <ellipse cx="100" cy="100" rx="72" ry="40" fill="none" stroke="#FE6501" stroke-width="20"/>
+            <path id="bp" d="M40 112 Q100 152 160 112" fill="none"/>
+            <text font-family="Source Sans 3, sans-serif" font-weight="700" font-size="11" fill="#FFFFFF" letter-spacing="1.5"><textPath href="#bp" startOffset="50%" text-anchor="middle">3R · RASSEMBLER POUR RÉFORMER</textPath></text>
+          </svg></div><span class="cap"><b>Bracelet silicone</b> · orange, texte blanc</span></div>
+      </div>
+      <p class="note small">Pour les commandes : transmettre au fournisseur le PDF vectoriel et les références Pantone (Orange ≈ 1505 C, Bleu nuit ≈ 2767 C), et demander un bon à tirer (BAT) avant la production.</p>
+    </section>
+
+    <!-- 7. RESSOURCES -->
     <section id="ressources">
       <div class="sec-head">
-        <div class="eyebrow">06 · Ressources</div>
+        <div class="eyebrow">07 · Ressources</div>
         <h2>Fichiers à utiliser</h2>
         <p>Tous les fichiers sont dans le dépôt du parti, dossier <code>assets/logo/</code>. Pour l'impression, on transmet toujours le PDF ou le SVG vectoriel, jamais une capture d'écran.</p>
       </div>
@@ -431,4 +727,53 @@ document.querySelectorAll('.copy').forEach(function (b) {
     } catch (e) { done(hex); }
   });
 });
+
+// Visuels duotone générés (foule, mains levées) en attendant les photos du parti
+(function () {
+  function rnd(seed) { var s = seed >>> 0; return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+  function draw(c) {
+    var w = c.clientWidth, h = c.clientHeight; if (!w || !h) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+    var x = c.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var r = rnd(+c.dataset.seed || 1), mode = c.dataset.mode;
+    var g = x.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, '#FF8A3D'); g.addColorStop(0.45, '#FE6501'); g.addColorStop(1, '#7A2E12');
+    x.fillStyle = g; x.fillRect(0, 0, w, h);
+    var sun = x.createRadialGradient(w * 0.62, h * 0.38, 0, w * 0.62, h * 0.38, Math.max(w, h) * 0.5);
+    sun.addColorStop(0, 'rgba(255,236,210,.85)'); sun.addColorStop(1, 'rgba(255,236,210,0)');
+    x.fillStyle = sun; x.fillRect(0, 0, w, h);
+    var rows = 5, base = Math.min(w, h * 1.4);
+    for (var k = 0; k < rows; k++) {
+      var t = k / (rows - 1), y0 = h * (0.5 + t * 0.42), s = base * (0.045 + t * 0.06);
+      var shade = Math.round(70 - t * 45);
+      x.fillStyle = 'rgb(' + Math.round(29 + shade * 0.9) + ',' + Math.round(43 + shade * 0.5) + ',' + Math.round(79 + shade * 0.4) + ')';
+      for (var px = -s; px < w + s; px += s * (1.25 + r() * 0.5)) {
+        var hy = y0 + (r() - 0.5) * s * 0.6;
+        x.beginPath(); x.arc(px, hy, s * 0.42, 0, Math.PI * 2); x.fill();
+        x.beginPath(); x.ellipse(px, hy + s * 1.25, s * 0.85, s * 0.8, 0, Math.PI, 0); x.rect(px - s * 0.85, hy + s * 1.25, s * 1.7, h); x.fill();
+        var arm = mode === 'hands' ? 0.55 : 0.12;
+        if (r() < arm) {
+          var side = r() < 0.5 ? -1 : 1, ax = px + side * s * 0.62, top = hy - s * (1.1 + r() * 0.6);
+          x.lineWidth = s * 0.28; x.lineCap = 'round'; x.strokeStyle = x.fillStyle;
+          x.beginPath(); x.moveTo(px + side * s * 0.55, hy + s * 0.9); x.lineTo(ax, top); x.stroke();
+          x.beginPath(); x.arc(ax, top - s * 0.12, s * 0.2, 0, Math.PI * 2); x.fill();
+          if (mode !== 'hands' && r() < 0.6) {
+            var fy = top - s * 0.9; x.lineWidth = s * 0.06;
+            x.beginPath(); x.moveTo(ax, top); x.lineTo(ax, fy); x.stroke();
+            x.fillStyle = '#FFFFFF'; x.fillRect(ax, fy, s * 0.9, s * 0.6);
+            x.fillStyle = '#FE6501'; x.beginPath(); x.arc(ax + s * 0.45, fy + s * 0.3, s * 0.2, 0, Math.PI * 2); x.fill();
+            x.fillStyle = 'rgb(' + Math.round(29 + shade * 0.9) + ',' + Math.round(43 + shade * 0.5) + ',' + Math.round(79 + shade * 0.4) + ')';
+          }
+        }
+      }
+    }
+    var v = x.createLinearGradient(0, h * 0.7, 0, h); v.addColorStop(0, 'rgba(29,43,79,0)'); v.addColorStop(1, 'rgba(29,43,79,.9)');
+    x.fillStyle = v; x.fillRect(0, 0, w, h);
+  }
+  var all = document.querySelectorAll('canvas.crowd');
+  all.forEach(draw);
+  if ('ResizeObserver' in window) { var ro = new ResizeObserver(function (es) { es.forEach(function (e) { draw(e.target); }); }); all.forEach(function (c) { ro.observe(c); }); }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { all.forEach(draw); });
+})();
 </script>
